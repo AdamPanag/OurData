@@ -17,9 +17,10 @@ public class Mainly {
 							   + "\n2. Add fields in existing data base."
 							   + "\n3. Delete fields."
 							   + "\n4. Edit fields."
-							   + "\n\nWhat do you want to do?");
+							   + "\n\nWhat do you want to do? Type the right number");
 			
 			ans = input.nextInt();
+			
 			
 		} while (ans != 0);
 
