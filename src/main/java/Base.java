@@ -48,16 +48,18 @@ public class Base {
 	
 	public void printBase() {
 		System.out.println();
+	
+
 		for (int i = 0; i < baseObjects.size(); i++) {
-			
+			System.out.printf("%s\n", categories.get(i));
 			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
 				
-				System.out.print(baseObjects.get(i).fields.get(j) + " ");
+				System.out.print(baseObjects.get(i).fields.get(j) + "");
 			}
 			System.out.println();
 			
 		}
-		System.out.println();
+
 	}
 	
 	
