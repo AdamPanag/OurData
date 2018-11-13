@@ -13,7 +13,7 @@ public class Mainly {
 		int ans;
 		do {
 			
-			System.out.println("** Menu **" 
+			System.out.println("** Menu 000000 **" 
 							   + "\n\n0. Terminate application"
 							   + "\n1. Create a new data base. "
 							   + "\n2. Add categories."
