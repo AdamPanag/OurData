@@ -10,7 +10,6 @@ public class Base {
 	
 	public void addCategories() {
 		
-		System.out.println("Specify the categories of "  + "\n");
 		
 		String flag;
 		do {
@@ -26,10 +25,11 @@ public class Base {
 		} while (flag.equals("1"));
 	}
 	
+	static int counter = 0;
 	
 	public void addFields() {
 		String flag;
-		int counter = 0;
+		
 		do {
 			baseObjects.add(new Field());
 		
@@ -54,10 +54,10 @@ public class Base {
 				
 				System.out.print(baseObjects.get(i).fields.get(j) + " ");
 			}
-			System.out.println("\n");
+			System.out.println();
 			
 		}
-		
+		System.out.println();
 	}
 	
 	
