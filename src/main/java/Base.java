@@ -14,11 +14,11 @@ public class Base {
 		String flag;
 		do {
 			
-			System.out.println("name of category:");
+			System.out.println("Name of category:");
 			String name = input.nextLine();
 			categories.add(name);
 			
-			System.out.println("Continue adding categories? If yes press 1, if no press any key");
+			System.out.println("Add category by pressing 1. Leave by pressing any key");
 			flag = input.nextLine();
 			/** input.nextLine(); **/
 			
