@@ -40,7 +40,7 @@ public class Base {
 				String name = input.nextLine();
 				baseObjects.get(counter).fields.add(name);
 			}
-			System.out.println("Continue adding fields? If yes press 1, if no press any key");
+			System.out.println("Continue adding fields by pressing 1. Leave by pressing any key");
 			flag = input.nextLine();
 			counter++;
 		} while (flag.equals("1"));
