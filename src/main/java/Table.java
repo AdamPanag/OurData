@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Table {
 	
-	ArrayList<ArrayList<ArrayList<String>>> table = new ArrayList<ArrayList<ArrayList<String>>>();
-	ArrayList<String> nameOfBase = new ArrayList<String>();
+	static ArrayList<ArrayList<ArrayList<String>>> table = new ArrayList<ArrayList<ArrayList<String>>>();
+	static ArrayList<String> nameOfBase = new ArrayList<String>();
 	
 	Scanner input = new Scanner(System.in);
 	

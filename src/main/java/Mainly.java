@@ -16,11 +16,12 @@ public class Mainly {
 			System.out.println("** Menu **" 
 							   + "\n\n0. Terminate application"
 							   + "\n1. Create a new data base. "
-							   + "\n2. Add fields in existing data base."
-							   + "\n3. Delete fields."
-							   + "\n4. Edit fields."
-							   + "\n5. Print a data base."
-							   + "\n6. Print all data base."
+							   + "\n2. Add categories."
+							   + "\n3. Add fields in existing data base."
+							   + "\n4. Delete fields."
+							   + "\n5. Edit fields."
+							   + "\n6. Print a data base."
+							   + "\n7. Print all data base."
 							   + "\n\nWhat do you want to do? Type the right number");
 			
 			ans = input.nextInt();
@@ -29,9 +30,14 @@ public class Mainly {
 				
 				myTable.createNewData();
 			} else if (ans == 2) {
-				int pos = myTable.findBase();
-				myBase.addFields(pos);
+				/** int pos = myTable.findBase(); **/
+				myBase.addCategories();
+			} else if (ans == 3) {
+				myBase.addFields();
+			} else if (ans == 6) {
+				myBase.printBase();
 			}
+				
 			
 		} while (ans != 0);
 
