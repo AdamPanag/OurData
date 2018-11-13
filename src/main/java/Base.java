@@ -10,26 +10,26 @@ public class Base {
 	
 	public void addCategories() {
 		
-		System.out.println("Specify the categories of "  + "\n");
 		
 		String flag;
 		do {
 			
-			System.out.println("name of category:");
+			System.out.println("Name of category:");
 			String name = input.nextLine();
 			categories.add(name);
 			
-			System.out.println("Continue adding categories? If yes press 1, if no press any key");
+			System.out.println("Add category by pressing 1. Leave by pressing any key");
 			flag = input.nextLine();
 			/** input.nextLine(); **/
 			
 		} while (flag.equals("1"));
 	}
 	
+	static int counter = 0;
 	
 	public void addFields() {
 		String flag;
-		int counter = 0;
+		
 		do {
 			baseObjects.add(new Field());
 		
@@ -54,10 +54,10 @@ public class Base {
 				
 				System.out.print(baseObjects.get(i).fields.get(j) + " ");
 			}
-			System.out.println("\n");
+			System.out.println();
 			
 		}
-		
+		System.out.println();
 	}
 	
 	
