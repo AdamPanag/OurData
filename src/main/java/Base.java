@@ -14,7 +14,7 @@ public class Base {
 		String flag;
 		do {
 			
-			System.out.println("Name of category:");
+			System.out.println("Enter the Name of the category:");
 			String name = input.nextLine();
 			categories.add(name);
 			
@@ -40,7 +40,7 @@ public class Base {
 				String name = input.nextLine();
 				baseObjects.get(counter).fields.add(name);
 			}
-			System.out.println("Continue adding fields? If yes press 1, if no press any key");
+			System.out.println("Continue adding fields? If yes press 1, if not press any key");
 			flag = input.nextLine();
 			counter++;
 		} while (flag.equals("1"));

@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Table {
 	
-	static ArrayList<ArrayList<ArrayList<String>>> table = new ArrayList<ArrayList<ArrayList<String>>>();
+	static ArrayList <ArrayList<ArrayList<String>>> table = new ArrayList <ArrayList<ArrayList<String>>>();
 	static ArrayList<String> nameOfBase = new ArrayList<String>();
 	
 	Scanner input = new Scanner(System.in);
@@ -12,7 +12,7 @@ public class Table {
 	
 	public void createNewData() {
 		
-		System.out.println("Name of your new data base:");
+		System.out.println("How would you like to name your new data base:");
 		String name = input.nextLine();
 		nameOfBase.add(name);
 		

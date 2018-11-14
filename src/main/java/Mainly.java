@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Mainly {
 	public static void main(String[] args) {
 		
@@ -9,11 +10,13 @@ public class Mainly {
 		
 		System.out.println("** Hello World **" + 
 						   "\n\nThis application creates a data base! Let's begin!\n");
-		
-		int ans;
-		do {
 			
-			System.out.println("** Menu 000000 **" 
+		
+		int ans ;		
+		
+					
+				
+				System.out.println("** Menu **" 
 							   + "\n\n0. Terminate application"
 							   + "\n1. Create a new data base. "
 							   + "\n2. Add categories."
@@ -24,23 +27,33 @@ public class Mainly {
 							   + "\n7. Print all data base."
 							   + "\n\nWhat do you want to do? Type the right number");
 			
-			ans = input.nextInt();
-			
-			if (ans == 1) {
+				ans = input.nextInt();
 				
-				myTable.createNewData();
-			} else if (ans == 2) {
-				/** int pos = myTable.findBase(); **/
-				myBase.addCategories();
-			} else if (ans == 3) {
-				myBase.addFields();
-			} else if (ans == 6) {
-				myBase.printBase();
-			}
+					if (ans == 1) {
 				
+				
+					myTable.createNewData();
+				} else if (ans == 2) {
+				
+					/** int pos = myTable.findBase(); **/
+					myBase.addCategories();
 			
-		} while (ans != 0);
-
-
-	}
+				} else if (ans == 3) {
+				
+				
+					myBase.addFields();
+				} else if (ans == 6) {
+				
+					myBase.printBase();
+				}
+				
+				while (ans != 0);
+		if (ans == 0 ) {
+			System.out.println("See you next time !");
+		}
+				
+				
+				
+	
 }
+}	
