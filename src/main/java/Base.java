@@ -14,7 +14,7 @@ public class Base {
 		String flag;
 		do {
 			
-			System.out.println("Name of category:");
+			System.out.println("Enter the Name of the category:");
 			String name = input.nextLine();
 			categories.add(name);
 			
@@ -37,7 +37,7 @@ public class Base {
 				String name = input.nextLine();
 				baseObjects.get(counter).fields.add(name);
 			}
-			
+
 			System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
 			flag = input.nextLine();
 			System.out.println();
@@ -48,7 +48,7 @@ public class Base {
 	public void printBase() {
 			
 		for (int i = 0; i < baseObjects.size(); i++) {
-			System.out.println(categories.get(i) + " ");
+			System.out.printf(categories.get(i) + " ");
 		}
 		System.out.println();
 		
