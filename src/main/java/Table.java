@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 import java.util.Scanner;
 
 public class Table {
@@ -6,15 +8,18 @@ public class Table {
 	static ArrayList <ArrayList<ArrayList<String>>> table = new ArrayList <ArrayList<ArrayList<String>>>();
 	static ArrayList<String> nameOfBase = new ArrayList<String>();
 	
-	Scanner input = new Scanner(System.in);
+	 Scanner input = new Scanner(System.in);
 	
 	
 	
 	public void createNewData() {
 		
-		System.out.println("How would you like to name your new data base:");
-		String name = input.nextLine();
-		nameOfBase.add(name);
+		// System.out.println("How would you like to name your new data base:");
+		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");
+		Scanner input = new Scanner(System.in);
+		
+		
+		nameOfBase.add(newDataBaseName);
 		
 		table.add(null);
 		

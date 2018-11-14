@@ -1,22 +1,24 @@
-import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 
 
 public class Mainly {
 	public static void main(String[] args) {
 		
-		Scanner input = new Scanner (System.in);
+		//epixeiro na ftiakso GUI
+				
 		Table myTable = new Table();
 		Base myBase = new Base();
 		
-		System.out.println("** Hello World **" + 
-						   "\n\nThis application creates a data base! Let's begin!\n");
-			
+		 JOptionPane.showMessageDialog(null, "			** Hello World **		");
+		 JOptionPane.showMessageDialog(null, "			This Application Ceates A DataBase		");				   
+		 JOptionPane.showMessageDialog(null, "			Lets Begin !		");	
 		
-		int ans ;		
+		int ans;		
 		
-					
+		do {			
 				
-				System.out.println("** Menu **" 
+		String answer = JOptionPane.showInputDialog("** Menu **" 
 							   + "\n\n0. Terminate application"
 							   + "\n1. Create a new data base. "
 							   + "\n2. Add categories."
@@ -27,29 +29,39 @@ public class Mainly {
 							   + "\n7. Print all data base."
 							   + "\n\nWhat do you want to do? Type the right number");
 			
-				ans = input.nextInt();
+		 ans = Integer.parseInt(answer);
 				
 					if (ans == 1) {
+						
+						JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
 				
 				
 					myTable.createNewData();
 				} else if (ans == 2) {
+					
+					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
 				
 					/** int pos = myTable.findBase(); **/
 					myBase.addCategories();
 			
 				} else if (ans == 3) {
+					
+					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
 				
 				
 					myBase.addFields();
 				} else if (ans == 6) {
-				
+					
+					
+					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
 					myBase.printBase();
 				}
 				
-				while (ans != 0);
+		} while (ans != 0);
+		
 		if (ans == 0 ) {
-			System.out.println("See you next time !");
+			JOptionPane.showMessageDialog(null,"See You Next Time!","the title",JOptionPane.PLAIN_MESSAGE);
+			
 		}
 				
 				
