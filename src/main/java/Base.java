@@ -47,7 +47,7 @@ public class Base {
 	
 	public void printBase() {
 			
-		for (int i = 0; i < baseObjects.size(); i++) {
+		for (int i = 0; i < categories.size(); i++) {
 			System.out.printf(categories.get(i) + " ");
 		}
 		System.out.println();
