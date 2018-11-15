@@ -44,6 +44,10 @@ public class Mainly {
 					
 					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
 					myBase.addFields();
+					
+				} else if (ans == 4) {
+					
+					myBase.deleteFields();
 	
 				} else if (ans == 6) {
 						

@@ -5,6 +5,7 @@ public class Base {
 	
 	ArrayList<Field> baseObjects = new ArrayList<Field>();
 	ArrayList<String> categories = new ArrayList<String>();
+	ArrayList<String> ids = new ArrayList<String>();
 	
 	Scanner input = new Scanner(System.in);
 	
@@ -23,14 +24,17 @@ public class Base {
 		} while (flag.equals("1"));
 	}
 	
-	static int counter = 0;
+	
 	
 	public void addFields() {
-	
+		int counter;
 		String flag;
 		do {
 			baseObjects.add(new Field());
-		
+			counter = baseObjects.size() - 1;
+			int t = counter + 1;
+			ids.add(String.valueOf(t));
+			
 			for (int i = 0; i < categories.size(); i++) {
 				
 				System.out.println("Give " + categories.get(i) + ":");
@@ -41,16 +45,19 @@ public class Base {
 			System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
 			flag = input.nextLine();
 			System.out.println();
-			counter++;
+			
 			
 		} while (flag.equals("1"));
 	}
 	
 	public void printBase() {
-			
+		int spaces;	
 		int maxWord = findMaxWord();
+		int maxId = findMaxIdLength();
+		spacing(maxId);
+		
 		for (int i = 0; i < categories.size(); i++) {
-			int spaces = maxWord - categories.get(i).length();
+			spaces = maxWord - categories.get(i).length();
 			System.out.printf(categories.get(i));
 			spacing(spaces);
 		}
@@ -58,12 +65,14 @@ public class Base {
 		System.out.println();
 		for (int i = 0; i < baseObjects.size(); i++) {
 			
+			System.out.print(ids.get(i));
+			spaces = maxId - ids.get(i).length();
+			spacing(spaces);
 			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
 
 				System.out.print(baseObjects.get(i).fields.get(j));	
-				int spaces = maxWord - baseObjects.get(i).fields.get(j).length();
+				spaces = maxWord - baseObjects.get(i).fields.get(j).length();
 				spacing(spaces);
-
 			}
 			System.out.println();
 		}
@@ -97,6 +106,30 @@ public class Base {
 		return max;		
 	} 
 	
+	public int findMaxIdLength() {
+		int max = 0;
+		
+		for (int i = 0; i < ids.size(); i++) {
+			if (ids.get(i).length() > max) {
+				max = ids.get(i).length();
+			}
+		}
+		return max;
+	}
+	
+	
+	public void deleteFields() {
+		
+		System.out.println("Which field do you want to delete? Give the right number:");
+		int pos = input.nextInt() - 1;
+		
+		baseObjects.remove(pos);
+		ids.remove(pos);
+		
+		for (int i = 0; i < ids.size(); i++) {
+			ids.set(i , String.valueOf(i + 1));
+		}
+	}	
 }
 	
 	
