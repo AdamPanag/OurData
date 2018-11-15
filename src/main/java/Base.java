@@ -48,25 +48,56 @@ public class Base {
 	
 	public void printBase() {
 			
+		int maxWord = findMaxWord();
 		for (int i = 0; i < categories.size(); i++) {
-		
-			System.out.printf("%s		",categories.get(i));
+			int spaces = maxWord - categories.get(i).length();
+			System.out.printf(categories.get(i));
+			spacing(spaces);
 		}
 		
 		System.out.println();
-		for (int i = 0; i < categories.size(); i++) {
+		for (int i = 0; i < baseObjects.size(); i++) {
 			
 			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
 
-				System.out.print(baseObjects.get(i).fields.get(j) + "		");	
-				
+				System.out.print(baseObjects.get(i).fields.get(j));	
+				int spaces = maxWord - baseObjects.get(i).fields.get(j).length();
+				spacing(spaces);
 
 			}
 			System.out.println();
 		}
 	}
 	
+	public void spacing (int spaces) {
+		for (int i = 0; i < spaces + 1; i++) {
+			System.out.print(" ");
+		}
+	}
 	
+	
+	public int findMaxWord() {
+		int max = 0;
+		
+		for (int i = 0; i < categories.size(); i++) {
+			if (categories.get(i).length() > max ) {
+				max = categories.get(i).length();
+			}			
+		}
+		
+		for (int i = 0; i < baseObjects.size(); i++) {
+			
+			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
+				
+				if (baseObjects.get(i).fields.get(j).length() > max) {
+					max = baseObjects.get(i).fields.get(j).length();
+				}
+			}
+		}
+		return max;		
+	} 
+	
+}
 	
 	
 	/** static ArrayList<String> categories = new ArrayList<String>();
@@ -95,5 +126,5 @@ public class Base {
 			
 		} while (flag == 1);
 	} **/
-}
+
 

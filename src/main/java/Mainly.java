@@ -23,7 +23,7 @@ public class Mainly {
 							   + "\n4. Delete fields."
 							   + "\n5. Edit fields."
 							   + "\n6. Print a data base."
-							   + "\n7. Print all data base."
+							   + "\n7. Print all data bases."
 							   + "\n\nWhat do you want to do? Type the right number");
 			
 		 ans = Integer.parseInt(answer);
