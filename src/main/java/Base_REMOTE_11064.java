@@ -10,6 +10,7 @@ public class Base {
 	
 	public void addCategories() {
 		
+		
 		String flag;
 		do {
 			
@@ -26,13 +27,12 @@ public class Base {
 	static int counter = 0;
 	
 	public void addFields() {
-	
 		String flag;
+		
 		do {
 			baseObjects.add(new Field());
 		
 			for (int i = 0; i < categories.size(); i++) {
-				
 				System.out.println("Give " + categories.get(i) + ":");
 				String name = input.nextLine();
 				baseObjects.get(counter).fields.add(name);
@@ -42,25 +42,21 @@ public class Base {
 			flag = input.nextLine();
 			System.out.println();
 			counter++;
-			
 		} while (flag.equals("1"));
 	}
 	
 	public void printBase() {
 			
 		for (int i = 0; i < categories.size(); i++) {
-		
-			System.out.printf("%s		",categories.get(i));
+			System.out.printf(categories.get(i) + " ");
 		}
-		
 		System.out.println();
-		for (int i = 0; i < categories.size(); i++) {
+		
+		for (int i = 0; i < baseObjects.size(); i++) {
 			
 			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
-
-				System.out.print(baseObjects.get(i).fields.get(j) + "		");	
 				
-
+				System.out.print(baseObjects.get(i).fields.get(j) + " ");
 			}
 			System.out.println();
 		}
