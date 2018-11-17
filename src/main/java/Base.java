@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import java.util.Scanner;
 
 public class Base {
@@ -11,24 +12,32 @@ public class Base {
 	
 	public void addCategories() {
 		
-		String flag;
+		int flag;
 		do {
+			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");
+			//System.out.println("Enter the Name of the category:");
 			
-			System.out.println("Enter the Name of the category:");
-			String name = input.nextLine();
 			categories.add(name);
 			
-			System.out.println("Add category by pressing 1. Leave by pressing any key.");
-			flag = input.nextLine();			
+			String answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
+			//System.out.println("Add category by pressing 1. Leave by pressing any key.");
 			
-		} while (flag.equals("1"));
-	}
+					try {	
+			
+						flag = Integer.parseInt(answer);
+					}catch (NumberFormatException ex) {
+						JOptionPane.showMessageDialog(null,"Oops, You did not type in a number");
+						answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any key.");
+						flag = Integer.parseInt(answer);
+					}
+					} while( flag == 1 );
+		}
 	
 	
 	
 	public void addFields() {
 		int counter;
-		String flag;
+		int flag;
 		do {
 			baseObjects.add(new Field());
 			counter = baseObjects.size() - 1;
@@ -37,17 +46,27 @@ public class Base {
 			
 			for (int i = 0; i < categories.size(); i++) {
 				
-				System.out.println("Give " + categories.get(i) + ":");
-				String name = input.nextLine();
+				String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
+				//System.out.println("Give " + categories.get(i) + ":");
+				
 				baseObjects.get(counter).fields.add(name);
 			}
-
-			System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
-			flag = input.nextLine();
-			System.out.println();
 			
+			String answer = JOptionPane.showInputDialog("Continue adding fields by pressing 1. Leave by pressing any other number.");
 			
-		} while (flag.equals("1"));
+			//System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
+			//System.out.println();
+			try {	
+				
+				flag = Integer.parseInt(answer);
+			}catch (NumberFormatException ex) {
+				JOptionPane.showMessageDialog(null,"Oops, You did not type in a number");
+				answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any key.");
+				flag = Integer.parseInt(answer);
+			}
+			} while( flag == 1 );
+			
+		
 	}
 	
 	public void printBase() {

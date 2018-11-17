@@ -30,19 +30,19 @@ public class Mainly {
 				
 				if (ans == 1) {
 					
-					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
+				
 					myTable.createNewData();
 
 				} else if (ans == 2) {
 					
-					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
+					
 				
 					/** int pos = myTable.findBase(); **/
 					myBase.addCategories();
 			
 				} else if (ans == 3) {
 					
-					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
+					
 					myBase.addFields();
 					
 				} else if (ans == 4) {
@@ -51,7 +51,7 @@ public class Mainly {
 	
 				} else if (ans == 6) {
 						
-					JOptionPane.showMessageDialog(null,"You Have Chosen "+ans,"the title",JOptionPane.PLAIN_MESSAGE);
+					
 					myBase.printBase();
 				}
 				
@@ -59,7 +59,7 @@ public class Mainly {
 		
 		if (ans == 0 ) {
 			
-			JOptionPane.showMessageDialog(null,"See You Next Time!","the title",JOptionPane.PLAIN_MESSAGE);
+			JOptionPane.showMessageDialog(null,"See You Next Time!");
 			
 		}	
 	}
