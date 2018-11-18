@@ -16,16 +16,8 @@ public class Base {
 	
 		do {
 			
-<<<<<<< HEAD
-			System.out.println("Enter the Name of the category:");
-			String name = input.nextLine();
-			categories.add(name); // Adding categories
-=======
-			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");
->>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
-			
-			categories.add(name);						
-			
+			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");		
+			categories.add(name);									
 			answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
 			
 			} while (answer.equals("1"));
@@ -45,21 +37,9 @@ public class Base {
 				int t = counter + 1;
 				ids.add(String.valueOf(t));
 				
-<<<<<<< HEAD
-				System.out.println("Give " + categories.get(i) + ":");
-				String name = input.nextLine();
-				baseObjects.get(counter).fields.add(name); // Adding fields in each category
-			}
-
-			System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
-			flag = input.nextLine();
-			System.out.println();
-			counter++;
-=======
 				for (int i = 0; i < categories.size(); i++) {
 					
-					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
-									
+					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");									
 					baseObjects.get(counter).fields.add(name);
 				}	
 				answer = JOptionPane.showInputDialog("Continue adding fields by pressing 1. Leave by pressing any other number.");
@@ -67,7 +47,6 @@ public class Base {
 			} while (answer.equals("1"));					
 		
 		} else {
->>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
 			
 			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
 		}
@@ -83,30 +62,25 @@ public class Base {
 		for (int i = 0; i < categories.size(); i++) {
 			
 			spaces = maxWord - categories.get(i).length();				
-			JOptionPane.showInputDialog(categories.get(i));			
+			System.out.print(categories.get(i));		
 			spacing(spaces);
 		}
 		
 		System.out.println();
 		
 		for (int i = 0; i < baseObjects.size(); i++) {
-			
-			
-			JOptionPane.showInputDialog(ids.get(i));
-			
-			spaces = maxId - ids.get(i).length();
-			
+						
+			System.out.print(ids.get(i));			
+			spaces = maxId - ids.get(i).length();			
 			spacing(spaces);
 			
 			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
 							
-				JOptionPane.showInputDialog(baseObjects.get(i).fields.get(j));
-				
-				spaces = maxWord - baseObjects.get(i).fields.get(j).length();
-				
+				System.out.print(baseObjects.get(i).fields.get(j));				
+				spaces = maxWord - baseObjects.get(i).fields.get(j).length();				
 				spacing(spaces);
 			}
-			//System.out.println();
+			System.out.println();
 		}
 	}
 	
@@ -148,17 +122,11 @@ public class Base {
 				max = ids.get(i).length();
 			}
 		}
-<<<<<<< HEAD
-				
-
-=======
 		return max;
->>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
 	}
 	
 	
 	public void deleteFields() {
-		
 		String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
 		int pos = Integer.parseInt(answer) - 1;
 		boolean exists = false;
@@ -226,5 +194,3 @@ public class Base {
 			
 		} while (flag == 1);
 	} **/
-
-
