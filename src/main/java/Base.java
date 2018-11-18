@@ -64,10 +64,8 @@ public class Base {
 		
 		for (int i = 0; i < categories.size(); i++) {
 			
-			spaces = maxWord - categories.get(i).length();	
-			
-			JOptionPane.showInputDialog(categories.get(i));
-			
+			spaces = maxWord - categories.get(i).length();				
+			JOptionPane.showInputDialog(categories.get(i));			
 			spacing(spaces);
 		}
 		
