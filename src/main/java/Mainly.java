@@ -28,34 +28,34 @@ public class Mainly {
 			
 			
 			ans = Integer.parseInt(answer);
-				
-			if (ans == 1) {
-									
-				myTable.createNewData();
-
-			} else if (ans == 2) {
-									
-				/** int pos = myTable.findBase(); **/
-				myBase.addCategories();
 			
-			} else if (ans == 3) {
-										
+			switch (ans) {
+			case 0:
+				JOptionPane.showMessageDialog(null,"See You Next Time!");
+				break;	
+			case 1:
+				myTable.createNewData();
+				break;
+			case 2:
+				myBase.addCategories();
+				break;
+			case 3:
 				myBase.addFields();
-					
-			} else if (ans == 4) {
-						myBase.deleteFields();
-	
-			} else if (ans == 6) {
-						
+				break;
+			case 4:
+				myBase.deleteFields();
+				break;
+			case 5:
+				break;
+			case 6:
 				myBase.printBase();
-			}
-				
+				break;
+			case 7:
+				break;
+			default:
+				JOptionPane.showMessageDialog(null,"Please Try again");		
+			}					
 		} while (ans != 0);
 		
-		if (ans == 0 ) {
-			
-			JOptionPane.showMessageDialog(null,"See You Next Time!");
-			
-		}	
 	}
 }	

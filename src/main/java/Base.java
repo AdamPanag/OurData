@@ -17,7 +17,9 @@ public class Base {
 		do {
 			
 			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");
+			
 			categories.add(name);						
+			
 			answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
 			
 			} while (answer.equals("1"));
@@ -40,15 +42,15 @@ public class Base {
 				for (int i = 0; i < categories.size(); i++) {
 					
 					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
-					//System.out.println("Give " + categories.get(i) + ":");
-					
+									
 					baseObjects.get(counter).fields.add(name);
-				}
-				
+				}	
 				answer = JOptionPane.showInputDialog("Continue adding fields by pressing 1. Leave by pressing any other number.");
 							
 			} while (answer.equals("1"));					
+		
 		} else {
+			
 			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
 		}
 	}
@@ -61,24 +63,34 @@ public class Base {
 		spacing(maxId);
 		
 		for (int i = 0; i < categories.size(); i++) {
-			spaces = maxWord - categories.get(i).length();
-			System.out.printf(categories.get(i));
+			
+			spaces = maxWord - categories.get(i).length();	
+			
+			JOptionPane.showInputDialog(categories.get(i));
+			
 			spacing(spaces);
 		}
 		
 		System.out.println();
+		
 		for (int i = 0; i < baseObjects.size(); i++) {
 			
-			System.out.print(ids.get(i));
+			
+			JOptionPane.showInputDialog(ids.get(i));
+			
 			spaces = maxId - ids.get(i).length();
+			
 			spacing(spaces);
+			
 			for (int j=0; j < baseObjects.get(i).fields.size(); j++) {
-
-				System.out.print(baseObjects.get(i).fields.get(j));	
+							
+				JOptionPane.showInputDialog(baseObjects.get(i).fields.get(j));
+				
 				spaces = maxWord - baseObjects.get(i).fields.get(j).length();
+				
 				spacing(spaces);
 			}
-			System.out.println();
+			//System.out.println();
 		}
 	}
 	
@@ -93,7 +105,9 @@ public class Base {
 		int max = 0;
 		
 		for (int i = 0; i < categories.size(); i++) {
+			
 			if (categories.get(i).length() > max ) {
+				
 				max = categories.get(i).length();
 			}			
 		}
@@ -133,7 +147,7 @@ public class Base {
 			}				
 		}
 		if (!exists) {
-			JOptionPane.showMessageDialog(null, "This number does not exists.");
+			JOptionPane.showMessageDialog(null, "This number does not exist.");
 			
 			deleteFields();
 		} else {
