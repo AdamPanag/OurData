@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import java.util.Scanner;
@@ -14,11 +15,10 @@ public class Table {
 	
 	public void createNewData() {
 		
-		// System.out.println("How would you like to name your new data base:");
 		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");
+		
 		Scanner input = new Scanner(System.in);
-		
-		
+			
 		nameOfBase.add(newDataBaseName);
 		
 		table.add(null);
@@ -29,6 +29,7 @@ public class Table {
 		
 		System.out.println("Type the name of the data base you want to edit:");
 		String name = input.nextLine();
+		
 		int r = -1;
 		
 		for(int i=0; i < nameOfBase.size(); i++) {

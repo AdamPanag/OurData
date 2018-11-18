@@ -15,10 +15,11 @@ public class Mainly {
 		
 		do {			
 				
-		String answer = JOptionPane.showInputDialog("** Menu **" 
+			String answer = JOptionPane.showInputDialog("** Menu **" 
 							   + "\n\n0. Terminate application"
 							   + "\n1. Create a new data base. "
 							   + "\n2. Add categories."
+<<<<<<< HEAD
 							   + "\n3. Edit categories's names."
 							   + "\n4. Add fields in existing data base."
 							   + "\n5. Delete fields."
@@ -59,5 +60,45 @@ public class Mainly {
 			JOptionPane.showMessageDialog(null,"See you next time!","the title",JOptionPane.PLAIN_MESSAGE);
 			
 		}	
+=======
+							   + "\n3. Add fields in existing data base."
+							   + "\n4. Delete fields."
+							   + "\n5. Edit fields."
+							   + "\n6. Print a data base."
+							   + "\n7. Print all data bases."
+							   + "\n\nWhat do you want to do? Type the right number");
+			
+			
+			ans = Integer.parseInt(answer);
+			
+			switch (ans) {
+			case 0:
+				JOptionPane.showMessageDialog(null,"See You Next Time!");
+				break;	
+			case 1:
+				myTable.createNewData();
+				break;
+			case 2:
+				myBase.addCategories();
+				break;
+			case 3:
+				myBase.addFields();
+				break;
+			case 4:
+				myBase.deleteFields();
+				break;
+			case 5:
+				break;
+			case 6:
+				myBase.printBase();
+				break;
+			case 7:
+				break;
+			default:
+				JOptionPane.showMessageDialog(null,"Please Try again");		
+			}					
+		} while (ans != 0);
+		
+>>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
 	}
 }	
