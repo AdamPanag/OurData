@@ -15,9 +15,7 @@ public class Table {
 	
 	public void createNewData() {
 		
-		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");
-		
-		Scanner input = new Scanner(System.in);
+		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");	
 			
 		nameOfBase.add(newDataBaseName);
 		

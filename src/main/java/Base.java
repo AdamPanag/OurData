@@ -10,19 +10,24 @@ public class Base {
 	
 	Scanner input = new Scanner(System.in);
 	
+	
 	public void addCategories() {
-		
+	
+		if (Table.nameOfBase.size() != 0 ) {
+			
 		String answer;
 	
 		do {
 			
-			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");		
+			String name = JOptionPane.showInputDialog(" Enter the Name of the category:");		
 			categories.add(name);									
 			answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
 			
 			} while (answer.equals("1"));
+		}else {
+			JOptionPane.showMessageDialog(null, "You must first create a data base.");
 		}
-	
+	}
 	
 	
 	public void addFields() {
@@ -52,6 +57,28 @@ public class Base {
 		}
 	}
 	
+	/*public void editFields(){
+		
+		String answer = JOptionPane.showInputDialog("Which field do you want to edit ?");
+		
+		int len = baseObjects.size();
+		
+		for (int i=0; i<len; i++) {
+			if (baseObjects.get(i).equals(answer)) {
+				
+				//String editfield = JOptionPane.showInputDialog("What to you want to replace "+baseObjects.get(i)+" with ?");
+				 String editfield
+	
+				baseObjects.set(i, editfield);
+				
+			
+			}else {
+				JOptionPane.showMessageDialog(null," Error, can't find your Field");
+			}						
+			
+		}			
+		
+	}*/
 	
 	public void printBase() {
 		int spaces;	
