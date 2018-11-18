@@ -16,7 +16,13 @@ public class Base {
 	
 		do {
 			
+<<<<<<< HEAD
+			System.out.println("Enter the Name of the category:");
+			String name = input.nextLine();
+			categories.add(name); // Adding categories
+=======
 			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");
+>>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
 			
 			categories.add(name);						
 			
@@ -39,6 +45,17 @@ public class Base {
 				int t = counter + 1;
 				ids.add(String.valueOf(t));
 				
+<<<<<<< HEAD
+				System.out.println("Give " + categories.get(i) + ":");
+				String name = input.nextLine();
+				baseObjects.get(counter).fields.add(name); // Adding fields in each category
+			}
+
+			System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
+			flag = input.nextLine();
+			System.out.println();
+			counter++;
+=======
 				for (int i = 0; i < categories.size(); i++) {
 					
 					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
@@ -50,6 +67,7 @@ public class Base {
 			} while (answer.equals("1"));					
 		
 		} else {
+>>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
 			
 			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
 		}
@@ -130,7 +148,12 @@ public class Base {
 				max = ids.get(i).length();
 			}
 		}
+<<<<<<< HEAD
+				
+
+=======
 		return max;
+>>>>>>> 0be074f8d4d6216d7195f6fd65957e7e45bcf976
 	}
 	
 	
