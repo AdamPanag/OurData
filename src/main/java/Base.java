@@ -123,6 +123,7 @@ public class Base {
 	
 	
 	public void deleteFields() {
+		
 		String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
 		int pos = Integer.parseInt(answer) - 1;
 		boolean exists = false;
