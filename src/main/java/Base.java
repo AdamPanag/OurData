@@ -12,62 +12,47 @@ public class Base {
 	
 	public void addCategories() {
 		
-		int flag;
+		String answer;
+	
 		do {
+			
 			String name = JOptionPane.showInputDialog("  Enter the Name of the category:");
-			//System.out.println("Enter the Name of the category:");
+			categories.add(name);						
+			answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
 			
-			categories.add(name);
-			
-			String answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
-			//System.out.println("Add category by pressing 1. Leave by pressing any key.");
-			
-					try {	
-			
-						flag = Integer.parseInt(answer);
-					}catch (NumberFormatException ex) {
-						JOptionPane.showMessageDialog(null,"Oops, You did not type in a number");
-						answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any key.");
-						flag = Integer.parseInt(answer);
-					}
-					} while( flag == 1 );
+			} while (answer.equals("1"));
 		}
 	
 	
 	
 	public void addFields() {
-		int counter;
-		int flag;
-		do {
-			baseObjects.add(new Field());
-			counter = baseObjects.size() - 1;
-			int t = counter + 1;
-			ids.add(String.valueOf(t));
-			
-			for (int i = 0; i < categories.size(); i++) {
-				
-				String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
-				//System.out.println("Give " + categories.get(i) + ":");
-				
-				baseObjects.get(counter).fields.add(name);
-			}
-			
-			String answer = JOptionPane.showInputDialog("Continue adding fields by pressing 1. Leave by pressing any other number.");
-			
-			//System.out.println("Continue adding fields by pressing 1. Leave by pressing any key.");
-			//System.out.println();
-			try {	
-				
-				flag = Integer.parseInt(answer);
-			}catch (NumberFormatException ex) {
-				JOptionPane.showMessageDialog(null,"Oops, You did not type in a number");
-				answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any key.");
-				flag = Integer.parseInt(answer);
-			}
-			} while( flag == 1 );
-			
 		
+		if (categories.size() != 0) {
+			int counter;
+			String answer;
+			
+			do {
+				baseObjects.add(new Field());
+				counter = baseObjects.size() - 1;
+				int t = counter + 1;
+				ids.add(String.valueOf(t));
+				
+				for (int i = 0; i < categories.size(); i++) {
+					
+					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
+					//System.out.println("Give " + categories.get(i) + ":");
+					
+					baseObjects.get(counter).fields.add(name);
+				}
+				
+				answer = JOptionPane.showInputDialog("Continue adding fields by pressing 1. Leave by pressing any other number.");
+							
+			} while (answer.equals("1"));					
+		} else {
+			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
+		}
 	}
+	
 	
 	public void printBase() {
 		int spaces;	
@@ -138,21 +123,48 @@ public class Base {
 	
 	
 	public void deleteFields() {
-		
-		System.out.println("Which field do you want to delete? Give the right number:");
-		int pos = input.nextInt() - 1;
-		
-		baseObjects.remove(pos);
-		ids.remove(pos);
+		String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
+		int pos = Integer.parseInt(answer) - 1;
+		boolean exists = false;
 		
 		for (int i = 0; i < ids.size(); i++) {
-			ids.set(i , String.valueOf(i + 1));
+			if (ids.get(i).equals(String.valueOf(pos + 1))) {
+				exists = true;
+			}				
 		}
-	}	
+		if (!exists) {
+			JOptionPane.showMessageDialog(null, "This number does not exists.");
+			
+			deleteFields();
+		} else {
+		
+			baseObjects.remove(pos);
+			ids.remove(pos);
+		
+			for (int i = 0; i < ids.size(); i++) {
+			ids.set(i , String.valueOf(i + 1));
+			}
+		}
+	}
 }
 	
 	
-	/** static ArrayList<String> categories = new ArrayList<String>();
+	/** public int handleException (String name , String answer) {
+		int flag;
+		try {	
+			
+			flag = Integer.parseInt(answer);
+		} catch (NumberFormatException ex) {
+			JOptionPane.showMessageDialog(null,"Oops, You did not type in a number");
+			answer = JOptionPane.showInputDialog( "Add " + name + "by pressing 1. Leave by pressing any key.");
+			flag = Integer.parseInt(answer);
+		}
+		return flag;
+	}
+}
+	
+	
+ 	static ArrayList<String> categories = new ArrayList<String>();
 	
 	Scanner input = new Scanner(System.in);
 	

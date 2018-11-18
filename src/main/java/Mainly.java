@@ -15,7 +15,7 @@ public class Mainly {
 		
 		do {			
 				
-		String answer = JOptionPane.showInputDialog("** Menu **" 
+			String answer = JOptionPane.showInputDialog("** Menu **" 
 							   + "\n\n0. Terminate application"
 							   + "\n1. Create a new data base. "
 							   + "\n2. Add categories."
@@ -26,34 +26,29 @@ public class Mainly {
 							   + "\n7. Print all data bases."
 							   + "\n\nWhat do you want to do? Type the right number");
 			
-		 ans = Integer.parseInt(answer);
-				
-				if (ans == 1) {
-					
-				
-					myTable.createNewData();
-
-				} else if (ans == 2) {
-					
-					
-				
-					/** int pos = myTable.findBase(); **/
-					myBase.addCategories();
 			
-				} else if (ans == 3) {
+			ans = Integer.parseInt(answer);
+				
+			if (ans == 1) {
+									
+				myTable.createNewData();
+
+			} else if (ans == 2) {
+									
+				/** int pos = myTable.findBase(); **/
+				myBase.addCategories();
+			
+			} else if (ans == 3) {
+										
+				myBase.addFields();
 					
-					
-					myBase.addFields();
-					
-				} else if (ans == 4) {
-					
-					myBase.deleteFields();
+			} else if (ans == 4) {
+						myBase.deleteFields();
 	
-				} else if (ans == 6) {
+			} else if (ans == 6) {
 						
-					
-					myBase.printBase();
-				}
+				myBase.printBase();
+			}
 				
 		} while (ans != 0);
 		
