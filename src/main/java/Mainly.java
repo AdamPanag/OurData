@@ -46,7 +46,7 @@ public class Mainly {
 				myBase.deleteFields();
 				break;
 			case 5:
-				
+				myBase.editFields();
 				break;
 			case 6:
 				myBase.printBase();

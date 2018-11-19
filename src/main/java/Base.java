@@ -13,7 +13,7 @@ public class Base {
 	
 	public void addCategories() {
 	
-		if (Table.nameOfBase.size() != 0 ) {
+		
 			
 		String answer;
 	
@@ -24,9 +24,6 @@ public class Base {
 			answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
 			
 			} while (answer.equals("1"));
-		}else {
-			JOptionPane.showMessageDialog(null, "You must first create a data base.");
-		}
 	}
 	
 	
@@ -57,28 +54,47 @@ public class Base {
 		}
 	}
 	
-	/*public void editFields(){
+	// It doesn't work 100%
+	public void editFields(){   
 		
-		String answer = JOptionPane.showInputDialog("Which field do you want to edit ?");
+		String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
+		int pos = Integer.parseInt(answer) - 1;
+		boolean exists = false;
 		
-		int len = baseObjects.size();
-		
-		for (int i=0; i<len; i++) {
-			if (baseObjects.get(i).equals(answer)) {
+		for (int i = 0; i < ids.size(); i++) {
+			if (ids.get(i).equals(String.valueOf(pos + 1))) {
+				exists = true;
+			}				
+		}		
+		if (!exists) {
+			
+			JOptionPane.showMessageDialog(null, "This number does not exist.");			
+			editFields();	
+			
+		} else {
+			boolean exists2 = false;
+			int catPos = 0;
+			String answer2;
+			do {
+				answer2 = JOptionPane.showInputDialog("Which category do you want to edit? "
+	  													 + "Type it as you see it.\n" + categories);
 				
-				//String editfield = JOptionPane.showInputDialog("What to you want to replace "+baseObjects.get(i)+" with ?");
-				 String editfield
+				for (int i = 0; i < categories.size(); i++) {
+					if(categories.get(i).equals(answer2)) {
+						exists2 = true;
+						catPos = i;
+					}
+				}
+				if (!exists2)
+					JOptionPane.showMessageDialog(null, "Wrong input, type the name of category as you see it.");
+			} while (!exists2);
+			
+			String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
+			baseObjects.get(pos).fields.set(catPos, toEdit);
+		}
+	}
+		
 	
-				baseObjects.set(i, editfield);
-				
-			
-			}else {
-				JOptionPane.showMessageDialog(null," Error, can't find your Field");
-			}						
-			
-		}			
-		
-	}*/
 	
 	public void printBase() {
 		int spaces;	
