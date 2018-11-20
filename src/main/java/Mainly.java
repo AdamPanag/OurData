@@ -8,7 +8,7 @@ public class Mainly {
 		Base myBase = new Base();
 		
 		JOptionPane.showMessageDialog(null, "             ** Hello World **\n"
-			 						+ "This application creates a data base\n"	
+			 						+ "This Application Creates A DataBase\n"	
 			 						+ "                 Lets Begin !");	
 	
 		int ans;		
@@ -16,13 +16,13 @@ public class Mainly {
 		do {			
 				
 			String answer = JOptionPane.showInputDialog("** Menu **" 
-							   + "\n\n0. Terminate application"
-							   + "\n1. Add categories."
-							   + "\n2. Add fields."
-							   + "\n3. Delete fields."
-							   + "\n4. Edit fields."
-							   + "\n5. Print the data base."							
-							   + "\n\nWhat do you want to do? Type the right number");
+							   + "\n\n0. Terminate Application"
+							   + "\n1. Add Categories."
+							   + "\n2. Add Fields."
+							   + "\n3. Delete Fields."
+							   + "\n4. Edit Fields."
+							   + "\n5. Print The Data Base."							
+							   + "\n\nWhat Would You Like To do? Type The Right Number");
 			
 			
 			ans = Integer.parseInt(answer);
