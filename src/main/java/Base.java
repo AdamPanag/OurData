@@ -21,7 +21,8 @@ public class Base {
 			
 			String name = JOptionPane.showInputDialog(" Enter the Name of the category:");		
 			categories.add(name);									
-			answer = JOptionPane.showInputDialog( "Add category by pressing 1. Leave by pressing any other number.");
+			answer = JOptionPane.showInputDialog( "Add category by pressing the number 1."
+												+ " Leave by pressing any other key.");
 			
 			} while (answer.equals("1"));
 	}
@@ -44,7 +45,8 @@ public class Base {
 					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");									
 					baseObjects.get(counter).fields.add(name);
 				}	
-				answer = JOptionPane.showInputDialog("Continue adding fields by pressing 1. Leave by pressing any other number.");
+				answer = JOptionPane.showInputDialog("Continue adding fields by pressing the number1."
+														+ " Leave by pressing any other key.");
 							
 			} while (answer.equals("1"));					
 		
