@@ -12,9 +12,7 @@ public class Base {
 	
 	
 	public void addCategories() {
-	
-		
-			
+						
 		String answer;
 	
 		do {
@@ -60,44 +58,44 @@ public class Base {
 	public void editFields(){   
 		
 		if (baseObjects.size() != 0) {
-		
-		String answer = JOptionPane.showInputDialog("Which Field Do You Want To Edit? Give The Right Number");
-		int pos = Integer.parseInt(answer) - 1;
-		boolean exists = false;
-		
-		for (int i = 0; i < ids.size(); i++) {
-			if (ids.get(i).equals(String.valueOf(pos + 1))) {
-				exists = true;
-			}				
-		}		
-		if (!exists) {
 			
-			JOptionPane.showMessageDialog(null, "This Number Does Not Exist.");			
-			editFields();	
+			String answer = JOptionPane.showInputDialog("Which Field Do You Want To Edit? Give The Right Number");
+			int pos = Integer.parseInt(answer) - 1;
+			boolean exists = false;
 			
-		} else {
-			boolean exists2 = false;
-			int catPos = 0;
-			String answer2;
-			do {
-				answer2 = JOptionPane.showInputDialog("Which Category Do You Want To Edit? "
-	  													 + "Type Tt As You See It.\n" + categories);
+			for (int i = 0; i < ids.size(); i++) {
+				if (ids.get(i).equals(String.valueOf(pos + 1))) {
+					exists = true;
+				}				
+			}		
+			if (!exists) {
 				
-				for (int i = 0; i < categories.size(); i++) {
-					if(categories.get(i).equals(answer2)) {
-						exists2 = true;
-						catPos = i;
+				JOptionPane.showMessageDialog(null, "This Number Does Not Exist.");			
+				editFields();	
+				
+			} else {
+				boolean exists2 = false;
+				int catPos = 0;
+				String answer2;
+				do {
+					answer2 = JOptionPane.showInputDialog("Which Category Do You Want To Edit? "
+		  													 + "Type Tt As You See It.\n" + categories);
+					
+					for (int i = 0; i < categories.size(); i++) {
+						if(categories.get(i).equals(answer2)) {
+							exists2 = true;
+							catPos = i;
+						}
 					}
-				}
-				if (!exists2)
-					JOptionPane.showMessageDialog(null, "Wrong Input,"
-													+ " Type The Name Of The Category As You See It.");
-			} while (!exists2);
-			
-			String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
-			baseObjects.get(pos).fields.set(catPos, toEdit);
-		}
-		}else{
+					if (!exists2)
+						JOptionPane.showMessageDialog(null, "Wrong Input,"
+														+ " Type The Name Of The Category As You See It.");
+				} while (!exists2);
+				
+				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
+				baseObjects.get(pos).fields.set(catPos, toEdit);
+			}
+		} else {
 			JOptionPane.showMessageDialog(null, "You Must First Add A Field");
 		}
 	}
@@ -180,8 +178,7 @@ public class Base {
 	public void deleteFields() {
 		
 		if (baseObjects.size() != 0) {
-		
-		
+				
 			String answer = JOptionPane.showInputDialog("Which Field Do You Want To Delete? Give The Right Number:");
 			int pos = Integer.parseInt(answer) - 1;
 			boolean exists = false;
@@ -205,7 +202,7 @@ public class Base {
 				}
 			}
 		
-		}else {
+		} else {
 			JOptionPane.showMessageDialog(null, "You Must First Add A Field");
 		}
 	}
