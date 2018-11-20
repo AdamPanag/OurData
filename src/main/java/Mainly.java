@@ -17,13 +17,11 @@ public class Mainly {
 				
 			String answer = JOptionPane.showInputDialog("** Menu **" 
 							   + "\n\n0. Terminate application"
-							   + "\n1. Create a new data base. "
-							   + "\n2. Add categories."
-							   + "\n3. Add fields in existing data base."
-							   + "\n4. Delete fields."
-							   + "\n5. Edit fields."
-							   + "\n6. Print a data base."
-							   + "\n7. Print all data bases."
+							   + "\n1. Add categories."
+							   + "\n2. Add fields."
+							   + "\n3. Delete fields."
+							   + "\n4. Edit fields."
+							   + "\n5. Print the data base."							
 							   + "\n\nWhat do you want to do? Type the right number");
 			
 			
@@ -34,24 +32,22 @@ public class Mainly {
 				JOptionPane.showMessageDialog(null,"See You Next Time!");
 				break;	
 			case 1:
-				myTable.createNewData();
-				break;
-			case 2:
 				myBase.addCategories();
 				break;
-			case 3:
+			case 2:
 				myBase.addFields();
 				break;
-			case 4:
+			case 3:
 				myBase.deleteFields();
 				break;
-			case 5:
+			case 4:
 				myBase.editFields();
+				break;
+			case 5:
+				myBase.printBase();
 				break;
 			case 6:
 				myBase.printBase();
-				break;
-			case 7:
 				break;
 			default:
 				JOptionPane.showMessageDialog(null,"Please Try again");		
