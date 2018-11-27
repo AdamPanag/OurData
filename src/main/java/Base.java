@@ -5,30 +5,19 @@ import java.util.Scanner;
 public class Base {
 	
 	ArrayList<Field> baseObjects = new ArrayList<Field>();
-	ArrayList<String> categories = new ArrayList<String>();
 	ArrayList<String> ids = new ArrayList<String>();
 	
 	Scanner input = new Scanner(System.in);
-	
-	
+	Categories myCat = new Categories();
+
 	public void addCategories() {
-						
-		String answer;
-	
-		do {
-			
-			String name = JOptionPane.showInputDialog(" Enter The Name Of The Category:");		
-			categories.add(name);									
-			answer = JOptionPane.showInputDialog( "Add Category By Pressing The Number 1."
-												+ " Leave By Pressing Any Other Key.");
-			
-			} while (answer.equals("1"));
+		myCat.addCategories();
 	}
 	
 	
 	public void addFields() {
 		
-		if (categories.size() != 0) {
+		if (myCat.getCategories().size() != 0) {
 			int counter;
 			String answer;
 			
@@ -38,9 +27,9 @@ public class Base {
 				int t = counter + 1;
 				ids.add(String.valueOf(t));
 				
-				for (int i = 0; i < categories.size(); i++) {
+				for (int i = 0; i < myCat.getCategories().size(); i++) {
 					
-					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");									
+					String name = JOptionPane.showInputDialog("Give " + myCat.getCategories().get(i) + ":");									
 					baseObjects.get(counter).fields.add(name);
 				}	
 				answer = JOptionPane.showInputDialog("Continue Adding Fields By Pressing The Number 1."
@@ -79,10 +68,10 @@ public class Base {
 				String answer2;
 				do {
 					answer2 = JOptionPane.showInputDialog("Which Category Do You Want To Edit? "
-		  													 + "Type Tt As You See It.\n" + categories);
+		  													 + "Type Tt As You See It.\n" + myCat.getCategories());
 					
-					for (int i = 0; i < categories.size(); i++) {
-						if(categories.get(i).equals(answer2)) {
+					for (int i = 0; i < myCat.getCategories().size(); i++) {
+						if(myCat.getCategories().get(i).equals(answer2)) {
 							exists2 = true;
 							catPos = i;
 						}
@@ -92,7 +81,7 @@ public class Base {
 														+ " Type The Name Of The Category As You See It.");
 				} while (!exists2);
 				
-				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
+				String toEdit = JOptionPane.showInputDialog("Give " + myCat.getCategories().get(catPos) + ":");
 				baseObjects.get(pos).fields.set(catPos, toEdit);
 			}
 		} else {
@@ -108,10 +97,10 @@ public class Base {
 		int maxId = findMaxIdLength();
 		spacing(maxId);
 		
-		for (int i = 0; i < categories.size(); i++) {
+		for (int i = 0; i < myCat.getCategories().size(); i++) {
 			
-			spaces = maxWord - categories.get(i).length();				
-			System.out.print(categories.get(i));		
+			spaces = maxWord - myCat.getCategories().get(i).length();				
+			System.out.print(myCat.getCategories().get(i));		
 			spacing(spaces);
 		}
 		
@@ -143,11 +132,11 @@ public class Base {
 	public int findMaxWord() {
 		int max = 0;
 		
-		for (int i = 0; i < categories.size(); i++) {
+		for (int i = 0; i < myCat.getCategories().size(); i++) {
 			
-			if (categories.get(i).length() > max ) {
+			if (myCat.getCategories().get(i).length() > max ) {
 				
-				max = categories.get(i).length();
+				max = myCat.getCategories().get(i).length();
 			}			
 		}
 		
