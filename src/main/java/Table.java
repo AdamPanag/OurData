@@ -43,10 +43,7 @@ public class Table {
 			case 4:
 				table.get(r).editFields();
 				break;
-			case 5:
-				table.get(r).printBase();
-				break;
-			case 6:
+			case 5:				
 				table.get(r).printBase();
 				break;
 			default:

@@ -5,19 +5,30 @@ import java.util.Scanner;
 public class Base {
 	
 	ArrayList<Field> baseObjects = new ArrayList<Field>();
+	ArrayList<String> categories = new ArrayList<String>();
 	ArrayList<String> ids = new ArrayList<String>();
 	
 	Scanner input = new Scanner(System.in);
-	Categories myCat = new Categories();
-
+	
+	
 	public void addCategories() {
-		myCat.addCategories();
+						
+		String answer;
+	
+		do {
+			
+			String name = JOptionPane.showInputDialog(" Enter The Name Of The Category:");		
+			categories.add(name);									
+			answer = JOptionPane.showInputDialog( "Add Category By Pressing The Number 1."
+												+ " Leave By Pressing Any Other Key.");
+			
+			} while (answer.equals("1"));
 	}
 	
 	
 	public void addFields() {
 		
-		if (myCat.getCategories().size() != 0) {
+		if (categories.size() != 0) {
 			int counter;
 			String answer;
 			
@@ -27,9 +38,9 @@ public class Base {
 				int t = counter + 1;
 				ids.add(String.valueOf(t));
 				
-				for (int i = 0; i < myCat.getCategories().size(); i++) {
+				for (int i = 0; i < categories.size(); i++) {
 					
-					String name = JOptionPane.showInputDialog("Give " + myCat.getCategories().get(i) + ":");									
+					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");									
 					baseObjects.get(counter).fields.add(name);
 				}	
 				answer = JOptionPane.showInputDialog("Continue Adding Fields By Pressing The Number 1."
@@ -68,10 +79,10 @@ public class Base {
 				String answer2;
 				do {
 					answer2 = JOptionPane.showInputDialog("Which Category Do You Want To Edit? "
-		  													 + "Type Tt As You See It.\n" + myCat.getCategories());
+		  													 + "Type Tt As You See It.\n" + categories);
 					
-					for (int i = 0; i < myCat.getCategories().size(); i++) {
-						if(myCat.getCategories().get(i).equals(answer2)) {
+					for (int i = 0; i < categories.size(); i++) {
+						if(categories.get(i).equals(answer2)) {
 							exists2 = true;
 							catPos = i;
 						}
@@ -81,7 +92,7 @@ public class Base {
 														+ " Type The Name Of The Category As You See It.");
 				} while (!exists2);
 				
-				String toEdit = JOptionPane.showInputDialog("Give " + myCat.getCategories().get(catPos) + ":");
+				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
 				baseObjects.get(pos).fields.set(catPos, toEdit);
 			}
 		} else {
@@ -97,10 +108,10 @@ public class Base {
 		int maxId = findMaxIdLength();
 		spacing(maxId);
 		
-		for (int i = 0; i < myCat.getCategories().size(); i++) {
+		for (int i = 0; i < categories.size(); i++) {
 			
-			spaces = maxWord - myCat.getCategories().get(i).length();				
-			System.out.print(myCat.getCategories().get(i));		
+			spaces = maxWord - categories.get(i).length();				
+			System.out.print(categories.get(i));		
 			spacing(spaces);
 		}
 		
@@ -132,11 +143,11 @@ public class Base {
 	public int findMaxWord() {
 		int max = 0;
 		
-		for (int i = 0; i < myCat.getCategories().size(); i++) {
+		for (int i = 0; i < categories.size(); i++) {
 			
-			if (myCat.getCategories().get(i).length() > max ) {
+			if (categories.get(i).length() > max ) {
 				
-				max = myCat.getCategories().get(i).length();
+				max = categories.get(i).length();
 			}			
 		}
 		
@@ -196,46 +207,3 @@ public class Base {
 		}
 	}
 }
-	
-	
-	/** public int handleException (String name , String answer) {
-		int flag;
-		try {	
-			
-			flag = Integer.parseInt(answer);
-		} catch (NumberFormatException ex) {
-			JOptionPane.showMessageDialog(null,"Oops, You did not type in a number");
-			answer = JOptionPane.showInputDialog( "Add " + name + "by pressing 1. Leave by pressing any key.");
-			flag = Integer.parseInt(answer);
-		}
-		return flag;
-	}
-}
-	
-	
- 	static ArrayList<String> categories = new ArrayList<String>();
-	
-	Scanner input = new Scanner(System.in);
-	
-	public void addFields(int pos) {
-		
-		
-		System.out.println(pos); 
-	}
-	
-	public void addCategories(int pos) {
-		
-		System.out.println("Specify the categories of " + Table.nameOfBase.get(pos) + "\n");
-		
-		int flag;
-		do {
-			
-			System.out.println("name of category:");
-			String name = input.nextLine();
-			categories.add(name);
-			
-			System.out.println("Do you want to continue adding categories? If yes press 1");
-			flag = input.nextInt();
-			
-		} while (flag == 1);
-	} **/
