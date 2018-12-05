@@ -28,7 +28,10 @@ public class Base {
 	
 	public void addFields() {
 		
-		if (categories.size() != 0) {
+		if (categories.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
+		} else {
+			
 			int counter;
 			String answer;
 			
@@ -48,16 +51,16 @@ public class Base {
 							
 			} while (answer.equals("1"));					
 		
-		} else {
-			
-			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
-		}
+		} 
 	}
+	
 	
 	// It doesn't work 100%
 	public void editFields(){   
 		
-		if (baseObjects.size() != 0) {
+		if (baseObjects.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add a field");
+		} else {
 			
 			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
 			int pos = Integer.parseInt(answer) - 1;
@@ -79,7 +82,7 @@ public class Base {
 				String answer2;
 				do {
 					answer2 = JOptionPane.showInputDialog("Which category do you want to edit? "
-		  													 + "Type it as you see it.\n" + categories);
+		  												 + "Type it as you see it.\n" + categories);
 					
 					for (int i = 0; i < categories.size(); i++) {
 						if(categories.get(i).equals(answer2)) {
@@ -95,39 +98,40 @@ public class Base {
 				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
 				baseObjects.get(pos).fields.set(catPos, toEdit);
 			}
-		} else {
-			JOptionPane.showMessageDialog(null, "You must first add a field");
-		}
+		} 
 	}
-		
+	
+	
 	public void editCategories(){   
 		
-		if (categories.size() != 0) {
+		if (categories.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add a category");
+		} else {
 
-				boolean exists2 = false;
-				int catPos2 = 0;
-				String answer2; 
+			boolean exists = false;
+			int catPos = 0;
+			String answer; 
 				
-				do {
-					answer2 = JOptionPane.showInputDialog("Which category do you want to edit? "
-		  													 + "Type it as you see it.\n" + categories);
+			do {
+				answer = JOptionPane.showInputDialog("Which category do you want to edit? "
+		  											 + "Type it as you see it.\n" + categories);
 					
-					for (int i = 0; i < categories.size(); i++) {
-						if(categories.get(i).equals(answer2)) {
-							exists2 = true;
-							catPos2 = i;
-						}
+				for (int i = 0; i < categories.size(); i++) {
+					if(categories.get(i).equals(answer)) {
+						exists = true;
+						catPos = i;
 					}
-					if (!exists2)
-						JOptionPane.showMessageDialog(null, "Wrong input."
-														+ " Type the name of the category as you see it.");
-				} while (!exists2);
+				}
+				if (!exists)
+					JOptionPane.showMessageDialog(null, "Wrong input."
+												+ " Type the name of the category as you see it.");
+			} while (!exists);
 				
-				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos2) + ":");
-				categories.set(catPos2, toEdit);
-			}
-
+			String toEdit = JOptionPane.showInputDialog("Give new designation");
+			categories.set(catPos, toEdit);
 		}
+
+	}
 	
 	
 	public void printBase() {
@@ -161,6 +165,7 @@ public class Base {
 		}
 	}
 	
+	
 	public void spacing (int spaces) {
 		for (int i = 0; i < spaces + 1; i++) {
 			System.out.print(" ");
@@ -191,6 +196,7 @@ public class Base {
 		return max;		
 	} 
 	
+	
 	public int findMaxIdLength() {
 		int max = 0;
 		
@@ -205,7 +211,9 @@ public class Base {
 	
 	public void deleteFields() {
 		
-		if (baseObjects.size() != 0) {
+		if (baseObjects.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add a field");
+		} else {
 				
 			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
 			int pos = Integer.parseInt(answer) - 1;
@@ -230,8 +238,6 @@ public class Base {
 				}
 			}
 		
-		} else {
-			JOptionPane.showMessageDialog(null, "You must first add a field");
-		}
+		} 
 	}
 }
