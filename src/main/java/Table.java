@@ -22,7 +22,8 @@ public class Table {
 							   + "\n2. Add Fields."
 							   + "\n3. Delete Fields."
 							   + "\n4. Edit Fields."
-							   + "\n5. Print The Data Base."							
+							   + "\n5. Edit Categories."
+							   + "\n6. Print the Data Base."							
 							   + "\n\nWhat Would You Like To do? Type The Right Number");
 			
 			
@@ -43,7 +44,10 @@ public class Table {
 			case 4:
 				table.get(r).editFields();
 				break;
-			case 5:				
+			case 5:
+				table.get(r).editCategories();
+				break;
+			case 6:				
 				table.get(r).printBase();
 				break;
 			default:

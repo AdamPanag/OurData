@@ -17,10 +17,10 @@ public class Base {
 	
 		do {
 			
-			String name = JOptionPane.showInputDialog(" Enter The Name Of The Category:");		
+			String name = JOptionPane.showInputDialog(" Enter the name of the category:");		
 			categories.add(name);									
-			answer = JOptionPane.showInputDialog( "Add Category By Pressing The Number 1."
-												+ " Leave By Pressing Any Other Key.");
+			answer = JOptionPane.showInputDialog( "Add category by pressing the number 1."
+												+ " Leave by pressing any other key.");
 			
 			} while (answer.equals("1"));
 	}
@@ -43,14 +43,14 @@ public class Base {
 					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");									
 					baseObjects.get(counter).fields.add(name);
 				}	
-				answer = JOptionPane.showInputDialog("Continue Adding Fields By Pressing The Number 1."
-														+ " Leave By Pressing Any Other Key.");
+				answer = JOptionPane.showInputDialog("Continue adding fields by pressing the number 1."
+														+ " Leave by pressing any other key.");
 							
 			} while (answer.equals("1"));					
 		
 		} else {
 			
-			JOptionPane.showMessageDialog(null, "You Must First Difine At Least One Category.");
+			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
 		}
 	}
 	
@@ -59,7 +59,7 @@ public class Base {
 		
 		if (baseObjects.size() != 0) {
 			
-			String answer = JOptionPane.showInputDialog("Which Field Do You Want To Edit? Give The Right Number");
+			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
 			int pos = Integer.parseInt(answer) - 1;
 			boolean exists = false;
 			
@@ -70,7 +70,7 @@ public class Base {
 			}		
 			if (!exists) {
 				
-				JOptionPane.showMessageDialog(null, "This Number Does Not Exist.");			
+				JOptionPane.showMessageDialog(null, "This number does not exist.");			
 				editFields();	
 				
 			} else {
@@ -78,8 +78,8 @@ public class Base {
 				int catPos = 0;
 				String answer2;
 				do {
-					answer2 = JOptionPane.showInputDialog("Which Category Do You Want To Edit? "
-		  													 + "Type Tt As You See It.\n" + categories);
+					answer2 = JOptionPane.showInputDialog("Which category do you want to edit? "
+		  													 + "Type it as you see it.\n" + categories);
 					
 					for (int i = 0; i < categories.size(); i++) {
 						if(categories.get(i).equals(answer2)) {
@@ -88,18 +88,46 @@ public class Base {
 						}
 					}
 					if (!exists2)
-						JOptionPane.showMessageDialog(null, "Wrong Input,"
-														+ " Type The Name Of The Category As You See It.");
+						JOptionPane.showMessageDialog(null, "Wrong input."
+														+ " Type the name of the category as you see it.");
 				} while (!exists2);
 				
 				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
 				baseObjects.get(pos).fields.set(catPos, toEdit);
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "You Must First Add A Field");
+			JOptionPane.showMessageDialog(null, "You must first add a field");
 		}
 	}
 		
+	public void editCategories(){   
+		
+		if (categories.size() != 0) {
+
+				boolean exists2 = false;
+				int catPos2 = 0;
+				String answer2; 
+				
+				do {
+					answer2 = JOptionPane.showInputDialog("Which category do you want to edit? "
+		  													 + "Type it as you see it.\n" + categories);
+					
+					for (int i = 0; i < categories.size(); i++) {
+						if(categories.get(i).equals(answer2)) {
+							exists2 = true;
+							catPos2 = i;
+						}
+					}
+					if (!exists2)
+						JOptionPane.showMessageDialog(null, "Wrong input."
+														+ " Type the name of the category as you see it.");
+				} while (!exists2);
+				
+				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos2) + ":");
+				categories.set(catPos2, toEdit);
+			}
+
+		}
 	
 	
 	public void printBase() {
@@ -179,7 +207,7 @@ public class Base {
 		
 		if (baseObjects.size() != 0) {
 				
-			String answer = JOptionPane.showInputDialog("Which Field Do You Want To Delete? Give The Right Number:");
+			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
 			int pos = Integer.parseInt(answer) - 1;
 			boolean exists = false;
 		
@@ -189,7 +217,7 @@ public class Base {
 				}				
 			}
 			if (!exists) {
-				JOptionPane.showMessageDialog(null, "This Number Does Not Exist.");
+				JOptionPane.showMessageDialog(null, "This number does not exist.");
 			
 				deleteFields();
 			} else {
@@ -203,7 +231,7 @@ public class Base {
 			}
 		
 		} else {
-			JOptionPane.showMessageDialog(null, "You Must First Add A Field");
+			JOptionPane.showMessageDialog(null, "You must first add a field");
 		}
 	}
 }

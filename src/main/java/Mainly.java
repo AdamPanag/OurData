@@ -9,7 +9,7 @@ public class Mainly {
 		
 		
 		JOptionPane.showMessageDialog(null, "             ** Hello World **\n"
-			 						+ "This Application Creates A DataBase\n"	
+			 						+ "This application creates a DataBase\n"	
 			 						+ "                 Lets Begin !");	
 	
 		int ans;
@@ -25,7 +25,7 @@ public class Mainly {
 			
 			switch (ans) {
 			case 0:
-				JOptionPane.showMessageDialog(null,"See You Next Time!");
+				JOptionPane.showMessageDialog(null,"See you next time!");
 				break;	
 			case 1:
 				myTable.createNewData();
