@@ -54,7 +54,8 @@ public class Base {
 
 	// It doesn't work 100%
 	public void editFields() {
-
+		// setVoidValue(categories.size(), baseObjects.size());
+		
 		if (baseObjects.size() == 0) {
 			JOptionPane.showMessageDialog(null, "You must first add a field");
 		} else {
@@ -127,6 +128,27 @@ public class Base {
 			categories.set(catPos, toEdit);
 		}
 
+	}
+	
+	/*
+	 * Sets " " as value at every field in a array which has no value.
+	 */
+	public void setVoidValue(int catNum, int lineNum) {
+		
+		for (int i=1; i < lineNum; i++) {
+			
+			int s1 = baseObjects.get(i - 1).fields.size();
+			int s2 = baseObjects.get(i).fields.size();
+			int dif;
+			if (s1 != s2)  {
+				dif = s2 - s1;
+				
+				for (int k = 0; k < dif; k++) {
+					baseObjects.get(s1 - 1).fields.add(" ");
+					s1++;
+				}
+			}
+		}
 	}
 
 	public void printBase() {
