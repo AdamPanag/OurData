@@ -1,2 +1,2 @@
-We are "Hello World".
-This is our READ.ME file.
+## Hello World
+One greeting, one name. "Hello World".
