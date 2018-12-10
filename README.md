@@ -3,7 +3,7 @@ One greeting, one name. "Hello World". This is a project for university, and it 
 
 ## Purpose
 This project, is about a data base. It gives the opportunity to user, to do the basic functions of a data base.
-* ** Terminate Data Base ** , whice here you can shut down the programm.
+* **Terminate Data Base** , whice here you can shut down the programm.
 
 ## Building, Testing, Installing, Using
 After cloning our repository, in order to pull, run `git pull`.
