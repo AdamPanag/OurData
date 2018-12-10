@@ -24,6 +24,7 @@ public class Base {
 		} while (answer.equals("1"));
 	}
 
+	
 	public void addFields() {
 
 		if (categories.size() == 0) {
@@ -52,9 +53,9 @@ public class Base {
 		}
 	}
 
-	// It doesn't work 100%
+	
 	public void editFields() {
-		// setVoidValue(categories.size(), baseObjects.size());
+		setVoidValue(categories.size(), baseObjects.size());
 		
 		if (baseObjects.size() == 0) {
 			JOptionPane.showMessageDialog(null, "You must first add a field");
@@ -99,6 +100,7 @@ public class Base {
 		}
 	}
 
+	
 	public void editCategories() {
 
 		if (categories.size() == 0) {
@@ -130,26 +132,27 @@ public class Base {
 
 	}
 	
+	
 	/*
 	 * Sets " " as value at every field in a array which has no value.
 	 */
 	public void setVoidValue(int catNum, int lineNum) {
 		
-		for (int i=1; i < lineNum; i++) {
+		for (int i=0; i < lineNum; i++) {
 			
-			int s1 = baseObjects.get(i - 1).fields.size();
-			int s2 = baseObjects.get(i).fields.size();
+			int s1 = baseObjects.get(i).fields.size();
+			int s2 = categories.size();
 			int dif;
 			if (s1 != s2)  {
 				dif = s2 - s1;
 				
 				for (int k = 0; k < dif; k++) {
-					baseObjects.get(s1 - 1).fields.add(" ");
-					s1++;
+					baseObjects.get(i).fields.add("(not difined)");
 				}
 			}
 		}
 	}
+	
 
 	public void printBase() {
 		int spaces;
@@ -182,6 +185,7 @@ public class Base {
 		}
 	}
 
+	
 	public void spacing(int spaces) {
 		for (int i = 0; i < spaces + 1; i++) {
 			System.out.print(" ");
@@ -211,6 +215,7 @@ public class Base {
 		return max;
 	}
 
+	
 	public int findMaxIdLength() {
 		int max = 0;
 
@@ -222,6 +227,7 @@ public class Base {
 		return max;
 	}
 
+	
 	public void deleteFields() {
 
 		if (baseObjects.size() == 0) {
