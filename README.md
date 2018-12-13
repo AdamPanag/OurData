@@ -1,5 +1,5 @@
 ## Hello World
-One greeting, one name. "Hello World". This is a project for university, and it is the first big step for us, to the world of Programming. :space_invader: /play secret
+One greeting, one name. "Hello World". This is a project for university, and it is the first big step for us, to the world of Programming. :space_invader:  :hotsprings:
 
 ## Purpose
 This project, is about a data base. It gives the opportunity to user, to do the basic functions of a data base.
