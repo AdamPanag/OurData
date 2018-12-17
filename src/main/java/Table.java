@@ -11,14 +11,68 @@ public class Table {
 	Scanner input = new Scanner(System.in);
 	Base myBase = new Base();
 
+	
+	/*
+	 * Creates a new Table and calls tableMenu(int r) for this table.
+	 */
+	public void createNewData() {
+
+		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");
+		nameOfBase.add(newDataBaseName);
+
+		table.add(new Base());
+		tableMenu(bases);
+		bases++;
+	}
+	
+	
+	/*
+	 * Finds the table that the user gave and calls tableMenu(int r) for this table.
+	 */
+	public void findBase() {
+
+		if (nameOfBase.size() != 0) {
+
+			String name = JOptionPane.showInputDialog("These are the existing data bases " + nameOfBase
+					+ "\nType the name of the data base you want to edit:");
+
+			int r = -1;
+
+			for (int i = 0; i < nameOfBase.size(); i++) {
+
+				if (nameOfBase.get(i).equals(name)) {
+					r = i;
+				}
+			}
+
+			if (r == -1) {
+				JOptionPane.showMessageDialog(null, "Wrong name!");
+				findBase();
+			}
+			tableMenu(r);
+		} else {
+			JOptionPane.showMessageDialog(null, "You have 0 data bases, create one first.");
+		}
+	}
+
+	
+	/*
+	 * This is the menu for each table.
+	 */
 	public void tableMenu(int r) {
 		int ans;
 
 		do {
 
-			String answer = JOptionPane.showInputDialog("** Menu **" + "\n\n0. Go back" + "\n1. Add Categories."
-					+ "\n2. Add Fields." + "\n3. Delete Fields." + "\n4. Edit Fields." + "\n5. Edit Categories."
-					+ "\n6. Print the Data Base." + "\n\nWhat Would You Like To do? Type The Right Number");
+			String answer = JOptionPane.showInputDialog("** Menu **" 
+			                                          + "\n\n0. Go back"
+					                                  + "\n1. Add Categories."
+									                  + "\n2. Add Fields." 
+					                                  + "\n3. Delete Fields." 
+								                      + "\n4. Edit Fields." 
+				                             	      + "\n5. Edit Categories."
+					                                  + "\n6. Print the Data Base." 
+					                                  + "\n\nWhat Would You Like To do? Type The Right Number");
 
 			ans = Integer.parseInt(answer);
 
@@ -47,41 +101,5 @@ public class Table {
 				JOptionPane.showMessageDialog(null, "Please Try again");
 			}
 		} while (ans != 0);
-	}
-
-	public void createNewData() {
-
-		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");
-		nameOfBase.add(newDataBaseName);
-
-		table.add(new Base());
-		tableMenu(bases);
-		bases++;
-	}
-
-	public void findBase() {
-
-		if (nameOfBase.size() != 0) {
-
-			String name = JOptionPane.showInputDialog("These are the existing data bases " + nameOfBase
-					+ "\nType the name of the data base you want to edit:");
-
-			int r = -1;
-
-			for (int i = 0; i < nameOfBase.size(); i++) {
-
-				if (nameOfBase.get(i).equals(name)) {
-					r = i;
-				}
-			}
-
-			if (r == -1) {
-				JOptionPane.showMessageDialog(null, "Wrong name!");
-				findBase();
-			}
-			tableMenu(r);
-		} else {
-			JOptionPane.showMessageDialog(null, "You have 0 data bases, create one first.");
-		}
-	}
+	}	
 }

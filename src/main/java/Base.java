@@ -55,7 +55,7 @@ public class Base {
 
 	
 	public void editFields() {
-		setVoidValue(categories.size(), baseObjects.size());
+		setSpaceValue(categories.size(), baseObjects.size());
 		
 		if (baseObjects.size() == 0) {
 			JOptionPane.showMessageDialog(null, "You must first add a field");
@@ -63,14 +63,8 @@ public class Base {
 
 			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
 			int pos = Integer.parseInt(answer) - 1;
-			boolean exists = false;
-
-			for (int i = 0; i < ids.size(); i++) {
-				if (ids.get(i).equals(String.valueOf(pos + 1))) {
-					exists = true;
-				}
-			}
-			if (!exists) {
+			
+			if (!idExists(pos)) {
 
 				JOptionPane.showMessageDialog(null, "This number does not exist.");
 				editFields();
@@ -136,7 +130,7 @@ public class Base {
 	/*
 	 * Sets " " as value at every field in a array which has no value.
 	 */
-	public void setVoidValue(int catNum, int lineNum) {
+	public void setSpaceValue(int catNum, int lineNum) {
 		
 		for (int i=0; i < lineNum; i++) {
 			
@@ -185,13 +179,16 @@ public class Base {
 		}
 	}
 
-	
+	/*
+	 * Adds spaces on the same line.
+	 */
 	public void spacing(int spaces) {
 		for (int i = 0; i < spaces + 1; i++) {
 			System.out.print(" ");
 		}
 	}
 
+	
 	public int findMaxWord() {
 		int max = 0;
 
@@ -236,14 +233,8 @@ public class Base {
 
 			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
 			int pos = Integer.parseInt(answer) - 1;
-			boolean exists = false;
-
-			for (int i = 0; i < ids.size(); i++) {
-				if (ids.get(i).equals(String.valueOf(pos + 1))) {
-					exists = true;
-				}
-			}
-			if (!exists) {
+									
+			if (!idExists(pos)) {
 				JOptionPane.showMessageDialog(null, "This number does not exist.");
 
 				deleteFields();
@@ -258,5 +249,15 @@ public class Base {
 			}
 
 		}
+	}
+	
+	public boolean idExists(int pos) {
+		boolean exists = false;
+		for (int i = 0; i < ids.size(); i++) {
+			if (ids.get(i).equals(String.valueOf(pos + 1))) {
+				exists = true;
+			}
+		}
+		return exists;
 	}
 }

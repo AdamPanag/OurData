@@ -2,12 +2,17 @@ import javax.swing.JOptionPane;
 
 public class Mainly {
 
+	
+	/*
+	 * This is the menu for the data base.
+	 */
 	public static void main(String[] args) {
 
 		Table myTable = new Table();
 
-		JOptionPane.showMessageDialog(null, "             ** Hello World **\n" + "This application creates a DataBase\n"
-				+ "                 Lets Begin !");
+		JOptionPane.showMessageDialog(null, "             ** Hello World **\n" 
+		                                  + "This application creates a DataBase\n"
+									 	  + "                 Lets Begin !");
 
 		int ans;
 
