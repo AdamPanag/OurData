@@ -11,15 +11,13 @@ Firstly, pop-ups the main menu with the following orders:
 
 If you choose 1, then you will need to give a name to the data base you are going to create. After that, a second pop-up menu shows up with all the things you can do. From that point, you will be able to start set up your own data base.
 
-***0. Go back***
+***0. Go back***  :small_blue_diamond:
 If you select to go back, you will be transfered in the main menu again.
 
-***1. Add categories***
-By pressing 1, you order to create a category in which you may later add fields if you choose. After giving the name of your first category, you have two options: -First, you can create again another category, by pressing 1 and giving a name. You can make as many categories as you choose to.
-         -Second, you can stop making more categories, by pressing any other button from 1, and go to the previous menu.
-
-
-
+***1. Add categories*** :small_blue_diamond:
+By pressing 1, you order to create a category in which you may later add fields if you choose. After giving the name of your first category, you have two options:
+- First, you can create again another category, by pressing 1 and giving a name. You can make as many categories as you choose to.
+- Second, you can stop making more categories, by pressing any other button from 1, and go to the previous menu.
 
 ## Members
 * [Adam Panagiotidis](https://github.com/AdamPanag)
@@ -28,6 +26,5 @@ By pressing 1, you order to create a category in which you may later add fields 
 * [Konstantinos Xatzigiannis](https://github.com/DinosXa)
 * [Kostas Xiotis](https://github.com/Kostas99)
 
-Feel free to ask us any questions!
->
->
+Talk is cheap. Show me the code.
+>Linus Torvald
