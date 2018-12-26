@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Table {
 
-	ArrayList<Field> baseObjects = new ArrayList<Field>();
+	ArrayList<Field> fieldObjects = new ArrayList<Field>();
 	ArrayList<String> categories = new ArrayList<String>();
 	ArrayList<String> ids = new ArrayList<String>();
 	
@@ -35,15 +35,15 @@ public class Table {
 			String answer;
 
 			do {
-				baseObjects.add(new Field());
-				counter = baseObjects.size() - 1;
+				fieldObjects.add(new Field());
+				counter = fieldObjects.size() - 1;
 				int t = counter + 1;
 				ids.add(String.valueOf(t));
 
 				for (int i = 0; i < categories.size(); i++) {
 
 					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
-					baseObjects.get(counter).fields.add(name);
+					fieldObjects.get(counter).fields.add(name);
 				}
 				answer = JOptionPane.showInputDialog(
 						"Continue adding fields by pressing the number 1." + " Leave by pressing any other key.");
@@ -55,9 +55,9 @@ public class Table {
 
 	
 	public void editFields() {
-		setSpaceValue(categories.size(), baseObjects.size());
+		setSpaceValue(categories.size(), fieldObjects.size());
 		
-		if (baseObjects.size() == 0) {
+		if (fieldObjects.size() == 0) {
 			JOptionPane.showMessageDialog(null, "You must first add a field");
 		} else {
 
@@ -89,7 +89,7 @@ public class Table {
 				} while (!exists2);
 
 				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
-				baseObjects.get(pos).fields.set(catPos, toEdit);
+				fieldObjects.get(pos).fields.set(catPos, toEdit);
 			}
 		}
 	}
@@ -134,14 +134,14 @@ public class Table {
 		
 		for (int i=0; i < lineNum; i++) {
 			
-			int s1 = baseObjects.get(i).fields.size();
+			int s1 = fieldObjects.get(i).fields.size();
 			int s2 = categories.size();
 			int dif;
 			if (s1 != s2)  {
 				dif = s2 - s1;
 				
 				for (int k = 0; k < dif; k++) {
-					baseObjects.get(i).fields.add("(not difined)");
+					fieldObjects.get(i).fields.add("(not difined)");
 				}
 			}
 		}
@@ -163,16 +163,16 @@ public class Table {
 
 		System.out.println();
 
-		for (int i = 0; i < baseObjects.size(); i++) {
+		for (int i = 0; i < fieldObjects.size(); i++) {
 
 			System.out.print(ids.get(i));
 			spaces = maxId - ids.get(i).length();
 			spacing(spaces);
 
-			for (int j = 0; j < baseObjects.get(i).fields.size(); j++) {
+			for (int j = 0; j < fieldObjects.get(i).fields.size(); j++) {
 
-				System.out.print(baseObjects.get(i).fields.get(j));
-				spaces = maxWord - baseObjects.get(i).fields.get(j).length();
+				System.out.print(fieldObjects.get(i).fields.get(j));
+				spaces = maxWord - fieldObjects.get(i).fields.get(j).length();
 				spacing(spaces);
 			}
 			System.out.println();
@@ -200,12 +200,12 @@ public class Table {
 			}
 		}
 
-		for (int i = 0; i < baseObjects.size(); i++) {
+		for (int i = 0; i < fieldObjects.size(); i++) {
 
-			for (int j = 0; j < baseObjects.get(i).fields.size(); j++) {
+			for (int j = 0; j < fieldObjects.get(i).fields.size(); j++) {
 
-				if (baseObjects.get(i).fields.get(j).length() > max) {
-					max = baseObjects.get(i).fields.get(j).length();
+				if (fieldObjects.get(i).fields.get(j).length() > max) {
+					max = fieldObjects.get(i).fields.get(j).length();
 				}
 			}
 		}
@@ -227,7 +227,7 @@ public class Table {
 	
 	public void deleteFields() {
 
-		if (baseObjects.size() == 0) {
+		if (fieldObjects.size() == 0) {
 			JOptionPane.showMessageDialog(null, "You must first add a field");
 		} else {
 
@@ -240,7 +240,7 @@ public class Table {
 				deleteFields();
 			} else {
 
-				baseObjects.remove(pos);
+				fieldObjects.remove(pos);
 				ids.remove(pos);
 
 				for (int i = 0; i < ids.size(); i++) {
