@@ -8,7 +8,7 @@ public class Mainly {
 	 */
 	public static void main(String[] args) {
 
-		Table myTable = new Table();
+		Base myBase = new Base();
 
 		JOptionPane.showMessageDialog(null, "             ** Hello World **\n" 
 		                                  + "This application creates a DataBase\n"
@@ -18,8 +18,10 @@ public class Mainly {
 
 		do {
 
-			String answer = JOptionPane.showInputDialog("** Menu **" + "\n\n0. Terminate Application"
-					+ "\n1. Create a new data base." + "\n2. Edit an existing data base.");
+			String answer = JOptionPane.showInputDialog("** Menu **" 
+			                                          + "\n\n0. Terminate Application"
+					                                  + "\n1. Create a new data base." 
+					                                  + "\n2. Edit an existing data base.");
 
 			ans = Integer.parseInt(answer);
 
@@ -28,10 +30,10 @@ public class Mainly {
 				JOptionPane.showMessageDialog(null, "See you next time!");
 				break;
 			case 1:
-				myTable.createNewData();
+				myBase.createNewTable();
 				break;
 			case 2:
-				myTable.findBase();
+				myBase.findTable();
 				break;
 			}
 		} while (ans != 0);

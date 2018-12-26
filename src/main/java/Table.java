@@ -4,102 +4,260 @@ import java.util.Scanner;
 
 public class Table {
 
-	ArrayList<Base> table = new ArrayList<Base>();
-	ArrayList<String> nameOfBase = new ArrayList<String>();
-	public static int bases = 0;
-
+	ArrayList<Field> baseObjects = new ArrayList<Field>();
+	ArrayList<String> categories = new ArrayList<String>();
+	ArrayList<String> ids = new ArrayList<String>();
+	
 	Scanner input = new Scanner(System.in);
-	Base myBase = new Base();
 
-	
-	/*
-	 * Creates a new Table and calls tableMenu(int r) for this table.
-	 */
-	public void createNewData() {
+	public void addCategories() {
 
-		String newDataBaseName = JOptionPane.showInputDialog("How would you like to name your new data base:");
-		nameOfBase.add(newDataBaseName);
+		String answer;
 
-		table.add(new Base());
-		tableMenu(bases);
-		bases++;
+		do {
+
+			String name = JOptionPane.showInputDialog(" Enter the name of the category:");
+			categories.add(name);
+			answer = JOptionPane
+					.showInputDialog("Add category by pressing the number 1." + " Leave by pressing any other key.");
+
+		} while (answer.equals("1"));
 	}
+
 	
-	
-	/*
-	 * Finds the table that the user gave and calls tableMenu(int r) for this table.
-	 */
-	public void findBase() {
+	public void addFields() {
 
-		if (nameOfBase.size() != 0) {
-
-			String name = JOptionPane.showInputDialog("These are the existing data bases " + nameOfBase
-					+ "\nType the name of the data base you want to edit:");
-
-			int r = -1;
-
-			for (int i = 0; i < nameOfBase.size(); i++) {
-
-				if (nameOfBase.get(i).equals(name)) {
-					r = i;
-				}
-			}
-
-			if (r == -1) {
-				JOptionPane.showMessageDialog(null, "Wrong name!");
-				findBase();
-			}
-			tableMenu(r);
+		if (categories.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
 		} else {
-			JOptionPane.showMessageDialog(null, "You have 0 data bases, create one first.");
+
+			int counter;
+			String answer;
+
+			do {
+				baseObjects.add(new Field());
+				counter = baseObjects.size() - 1;
+				int t = counter + 1;
+				ids.add(String.valueOf(t));
+
+				for (int i = 0; i < categories.size(); i++) {
+
+					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
+					baseObjects.get(counter).fields.add(name);
+				}
+				answer = JOptionPane.showInputDialog(
+						"Continue adding fields by pressing the number 1." + " Leave by pressing any other key.");
+
+			} while (answer.equals("1"));
+
 		}
 	}
 
 	
-	/*
-	 * This is the menu for each table.
-	 */
-	public void tableMenu(int r) {
-		int ans;
+	public void editFields() {
+		setSpaceValue(categories.size(), baseObjects.size());
+		
+		if (baseObjects.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add a field");
+		} else {
 
-		do {
+			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
+			int pos = Integer.parseInt(answer) - 1;
+			
+			if (!idExists(pos)) {
 
-			String answer = JOptionPane.showInputDialog("** Menu **" 
-			                                          + "\n\n0. Go back"
-					                                  + "\n1. Add Categories."
-									                  + "\n2. Add Fields." 
-					                                  + "\n3. Delete Fields." 
-								                      + "\n4. Edit Fields." 
-				                             	      + "\n5. Edit Categories."
-					                                  + "\n6. Print the Data Base." 
-					                                  + "\n\nWhat Would You Like To do? Type The Right Number");
+				JOptionPane.showMessageDialog(null, "This number does not exist.");
+				editFields();
 
-			ans = Integer.parseInt(answer);
+			} else {
+				boolean exists2 = false;
+				int catPos = 0;
+				String answer2;
+				do {
+					answer2 = JOptionPane.showInputDialog(
+							"Which category do you want to edit? " + "Type it as you see it.\n" + categories);
 
-			switch (ans) {
-			case 0:
-				break;
-			case 1:
-				table.get(r).addCategories();
-				break;
-			case 2:
-				table.get(r).addFields();
-				break;
-			case 3:
-				table.get(r).deleteFields();
-				break;
-			case 4:
-				table.get(r).editFields();
-				break;
-			case 5:
-				table.get(r).editCategories();
-				break;
-			case 6:
-				table.get(r).printBase();
-				break;
-			default:
-				JOptionPane.showMessageDialog(null, "Please Try again");
+					for (int i = 0; i < categories.size(); i++) {
+						if (categories.get(i).equals(answer2)) {
+							exists2 = true;
+							catPos = i;
+						}
+					}
+					if (!exists2)
+						JOptionPane.showMessageDialog(null,
+								"Wrong input." + " Type the name of the category as you see it.");
+				} while (!exists2);
+
+				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
+				baseObjects.get(pos).fields.set(catPos, toEdit);
 			}
-		} while (ans != 0);
-	}	
+		}
+	}
+
+	
+	public void editCategories() {
+
+		if (categories.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add a category");
+		} else {
+
+			boolean exists = false;
+			int catPos = 0;
+			String answer;
+
+			do {
+				answer = JOptionPane.showInputDialog(
+						"Which category do you want to edit? " + "Type it as you see it.\n" + categories);
+
+				for (int i = 0; i < categories.size(); i++) {
+					if (categories.get(i).equals(answer)) {
+						exists = true;
+						catPos = i;
+					}
+				}
+				if (!exists)
+					JOptionPane.showMessageDialog(null,
+							"Wrong input." + " Type the name of the category as you see it.");
+			} while (!exists);
+
+			String toEdit = JOptionPane.showInputDialog("Give new designation");
+			categories.set(catPos, toEdit);
+		}
+
+	}
+	
+	
+	/*
+	 * Sets " " as value at every field in a array which has no value.
+	 */
+	public void setSpaceValue(int catNum, int lineNum) {
+		
+		for (int i=0; i < lineNum; i++) {
+			
+			int s1 = baseObjects.get(i).fields.size();
+			int s2 = categories.size();
+			int dif;
+			if (s1 != s2)  {
+				dif = s2 - s1;
+				
+				for (int k = 0; k < dif; k++) {
+					baseObjects.get(i).fields.add("(not difined)");
+				}
+			}
+		}
+	}
+	
+
+	public void printTable() {
+		int spaces;
+		int maxWord = findMaxWord();
+		int maxId = findMaxIdLength();
+		spacing(maxId);
+
+		for (int i = 0; i < categories.size(); i++) {
+
+			spaces = maxWord - categories.get(i).length();
+			System.out.print(categories.get(i));
+			spacing(spaces);
+		}
+
+		System.out.println();
+
+		for (int i = 0; i < baseObjects.size(); i++) {
+
+			System.out.print(ids.get(i));
+			spaces = maxId - ids.get(i).length();
+			spacing(spaces);
+
+			for (int j = 0; j < baseObjects.get(i).fields.size(); j++) {
+
+				System.out.print(baseObjects.get(i).fields.get(j));
+				spaces = maxWord - baseObjects.get(i).fields.get(j).length();
+				spacing(spaces);
+			}
+			System.out.println();
+		}
+	}
+
+	/*
+	 * Adds spaces on the same line.
+	 */
+	public void spacing(int spaces) {
+		for (int i = 0; i < spaces + 1; i++) {
+			System.out.print(" ");
+		}
+	}
+
+	
+	public int findMaxWord() {
+		int max = 0;
+
+		for (int i = 0; i < categories.size(); i++) {
+
+			if (categories.get(i).length() > max) {
+
+				max = categories.get(i).length();
+			}
+		}
+
+		for (int i = 0; i < baseObjects.size(); i++) {
+
+			for (int j = 0; j < baseObjects.get(i).fields.size(); j++) {
+
+				if (baseObjects.get(i).fields.get(j).length() > max) {
+					max = baseObjects.get(i).fields.get(j).length();
+				}
+			}
+		}
+		return max;
+	}
+
+	
+	public int findMaxIdLength() {
+		int max = 0;
+
+		for (int i = 0; i < ids.size(); i++) {
+			if (ids.get(i).length() > max) {
+				max = ids.get(i).length();
+			}
+		}
+		return max;
+	}
+
+	
+	public void deleteFields() {
+
+		if (baseObjects.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add a field");
+		} else {
+
+			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
+			int pos = Integer.parseInt(answer) - 1;
+									
+			if (!idExists(pos)) {
+				JOptionPane.showMessageDialog(null, "This number does not exist.");
+
+				deleteFields();
+			} else {
+
+				baseObjects.remove(pos);
+				ids.remove(pos);
+
+				for (int i = 0; i < ids.size(); i++) {
+					ids.set(i, String.valueOf(i + 1));
+				}
+			}
+
+		}
+	}
+	
+	public boolean idExists(int pos) {
+		boolean exists = false;
+		for (int i = 0; i < ids.size(); i++) {
+			if (ids.get(i).equals(String.valueOf(pos + 1))) {
+				exists = true;
+			}
+		}
+		return exists;
+	}
 }
