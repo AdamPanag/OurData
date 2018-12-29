@@ -52,6 +52,15 @@ public class Base {
 			JOptionPane.showMessageDialog(null, "You have 0 data bases, create one first.");
 		}
 	}
+	
+	
+	public void printAllTables() {
+		for (int i = 0; i < tables; i++) {
+			System.out.println("** " + nameOfTable.get(i) + " **");
+			table.get(i).printTable();
+		}
+		System.out.println();
+	}
 
 	
 	/*
@@ -69,8 +78,8 @@ public class Base {
 					                                  + "\n3. Delete Fields." 
 								                      + "\n4. Edit Fields." 
 				                             	      + "\n5. Edit Categories."
-					                                  + "\n6. Print the Data Base." 
-					                                  + "\n\nWhat Would You Like To do? Type The Right Number");
+					                                  + "\n6. Print the Table." 
+					                                  + "\n\nWhat would you like to do? Type the right number");
 
 			ans = Integer.parseInt(answer);
 

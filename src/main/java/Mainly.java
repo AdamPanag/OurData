@@ -20,8 +20,10 @@ public class Mainly {
 
 			String answer = JOptionPane.showInputDialog("** Menu **" 
 			                                          + "\n\n0. Terminate Application"
-					                                  + "\n1. Create a new data base." 
-					                                  + "\n2. Edit an existing data base.");
+					                                  + "\n1. Create a new table." 
+					                                  + "\n2. Edit an existing table."
+			                                          + "\n3. Print all tables"
+			                                          + "\n\nWhat would you like to do? Type the right number");
 
 			ans = Integer.parseInt(answer);
 
@@ -35,6 +37,8 @@ public class Mainly {
 			case 2:
 				myBase.findTable();
 				break;
+			case 3:
+				myBase.printAllTables();
 			}
 		} while (ans != 0);
 	}
