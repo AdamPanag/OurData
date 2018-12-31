@@ -64,7 +64,7 @@ public class Table {
 			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
 			int pos = Integer.parseInt(answer) - 1;
 			
-			if (!idExists(pos)) {
+			if (!idExists(pos,ids)) {
 
 				JOptionPane.showMessageDialog(null, "This number does not exist.");
 				editFields();
@@ -234,7 +234,7 @@ public class Table {
 			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
 			int pos = Integer.parseInt(answer) - 1;
 									
-			if (!idExists(pos)) {
+			if (!idExists(pos,ids)) {
 				JOptionPane.showMessageDialog(null, "This number does not exist.");
 
 				deleteFields();
@@ -251,10 +251,10 @@ public class Table {
 		}
 	}
 	
-	public boolean idExists(int pos) {
+	public boolean idExists(int pos, ArrayList<String> id) {
 		boolean exists = false;
-		for (int i = 0; i < ids.size(); i++) {
-			if (ids.get(i).equals(String.valueOf(pos + 1))) {
+		for (int i = 0; i < id.size(); i++) {
+			if (id.get(i).equals(String.valueOf(pos + 1))) {
 				exists = true;
 			}
 		}
