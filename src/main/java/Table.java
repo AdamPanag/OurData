@@ -151,7 +151,7 @@ public class Table {
 	public void printTable() {
 		int spaces;
 		int maxWord = findMaxWord();
-		int maxId = findMaxIdLength();
+		int maxId = findMaxIdLength(ids);
 		spacing(maxId);
 
 		for (int i = 0; i < categories.size(); i++) {
@@ -213,12 +213,12 @@ public class Table {
 	}
 
 	
-	public int findMaxIdLength() {
+	public int findMaxIdLength(ArrayList<String> id) {
 		int max = 0;
 
-		for (int i = 0; i < ids.size(); i++) {
-			if (ids.get(i).length() > max) {
-				max = ids.get(i).length();
+		for (int i = 0; i < id.size(); i++) {
+			if (id.get(i).length() > max) {
+				max = id.get(i).length();
 			}
 		}
 		return max;
