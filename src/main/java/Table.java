@@ -16,7 +16,7 @@ public class Table {
 
 		do {
 
-			String name = JOptionPane.showInputDialog(" Enter the name of the category:");
+			String name = JOptionPane.showInputDialog("Enter the name of the category:");
 			categories.add(name);
 			answer = JOptionPane
 					.showInputDialog("Add category by pressing the number 1." + " Leave by pressing any other key.");
@@ -29,6 +29,8 @@ public class Table {
 
 		if (categories.size() == 0) {
 			JOptionPane.showMessageDialog(null, "You must first difine at least one category.");
+			addCategories();
+			addFields();
 		} else {
 
 			int counter;
@@ -42,7 +44,7 @@ public class Table {
 
 				for (int i = 0; i < categories.size(); i++) {
 
-					String name = JOptionPane.showInputDialog("Give " + categories.get(i) + ":");
+					String name = JOptionPane.showInputDialog("Give field to the category '" + categories.get(i) + "':");
 					fieldObjects.get(counter).fields.add(name);
 				}
 				answer = JOptionPane.showInputDialog(
@@ -52,16 +54,44 @@ public class Table {
 
 		}
 	}
-
 	
+	public void deleteFields() {
+
+		if (fieldObjects.size() == 0) {
+			JOptionPane.showMessageDialog(null, "You must first add at least one field.");
+			addFields();
+		} else {
+
+			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
+			int pos = Integer.parseInt(answer) - 1;
+									
+			if (!idExists(pos,ids)) {
+				JOptionPane.showMessageDialog(null, "This number does not exist.");
+
+				deleteFields();
+			} else {
+				
+				fieldObjects.remove(pos);
+				ids.remove(pos);
+
+				for (int i = 0; i < ids.size(); i++) {
+					ids.set(i, String.valueOf(i + 1));
+				}
+			}
+
+		}
+	}
+
+
 	public void editFields() {
 		setSpaceValue(categories.size(), fieldObjects.size());
 		
 		if (fieldObjects.size() == 0) {
-			JOptionPane.showMessageDialog(null, "You must first add a field");
+			JOptionPane.showMessageDialog(null, "You must first add at least on field.");
+			addFields();
 		} else {
 
-			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number");
+			String answer = JOptionPane.showInputDialog("Which field do you want to edit? Give the right number.");
 			int pos = Integer.parseInt(answer) - 1;
 			
 			if (!idExists(pos,ids)) {
@@ -98,7 +128,8 @@ public class Table {
 	public void editCategories() {
 
 		if (categories.size() == 0) {
-			JOptionPane.showMessageDialog(null, "You must first add a category");
+			JOptionPane.showMessageDialog(null, "You must first add at least one category.");
+			addCategories();
 		} else {
 
 			boolean exists = false;
@@ -224,32 +255,6 @@ public class Table {
 		return max;
 	}
 
-	
-	public void deleteFields() {
-
-		if (fieldObjects.size() == 0) {
-			JOptionPane.showMessageDialog(null, "You must first add a field");
-		} else {
-
-			String answer = JOptionPane.showInputDialog("Which field do you want to delete? Give the right number:");
-			int pos = Integer.parseInt(answer) - 1;
-									
-			if (!idExists(pos,ids)) {
-				JOptionPane.showMessageDialog(null, "This number does not exist.");
-
-				deleteFields();
-			} else {
-
-				fieldObjects.remove(pos);
-				ids.remove(pos);
-
-				for (int i = 0; i < ids.size(); i++) {
-					ids.set(i, String.valueOf(i + 1));
-				}
-			}
-
-		}
-	}
 	
 	public boolean idExists(int pos, ArrayList<String> id) {
 		boolean exists = false;
