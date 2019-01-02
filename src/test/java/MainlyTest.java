@@ -6,7 +6,9 @@ public class MainlyTest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		Mainly.main(new String[] {"arg1", "arg2", "arg3"});
 	}
 
 }
+
+

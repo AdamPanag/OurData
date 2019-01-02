@@ -39,6 +39,10 @@ public class Mainly {
 				break;
 			case 3:
 				myBase.printAllTables();
+				break;
+			default: 
+				JOptionPane.showMessageDialog(null, "Invalid number, please try again");
+				break;
 			}
 		} while (ans != 0);
 	}
