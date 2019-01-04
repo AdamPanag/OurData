@@ -16,9 +16,9 @@ public class Base {
 	public void createNewTable() {
 
 		String newTableName = JOptionPane.showInputDialog("How would you like to name your new table:");
-		nameOfTable.add(newTableName);
-
+		nameOfTable.add(newTableName);		
 		table.add(new Table());
+		table.get(tables).setName(newTableName);
 		tableMenu(tables);
 		tables++;
 	}

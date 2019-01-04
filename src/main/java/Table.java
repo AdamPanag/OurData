@@ -7,6 +7,7 @@ public class Table {
 	ArrayList<Field> fieldObjects = new ArrayList<Field>();
 	ArrayList<String> categories = new ArrayList<String>();
 	ArrayList<String> ids = new ArrayList<String>();
+	private String tableName;
 	
 	Scanner input = new Scanner(System.in);
 
@@ -95,10 +96,8 @@ public class Table {
 			int pos = Integer.parseInt(answer) - 1;
 			
 			if (!idExists(pos,ids)) {
-
 				JOptionPane.showMessageDialog(null, "This number does not exist.");
 				editFields();
-
 			} else {
 				boolean exists2 = false;
 				int catPos = 0;
@@ -184,7 +183,8 @@ public class Table {
 		int maxWord = findMaxWord();
 		int maxId = findMaxIdLength(ids);
 		spacing(maxId);
-
+		
+		System.out.print("**" + getName() + "**\n\n");
 		for (int i = 0; i < categories.size(); i++) {
 
 			spaces = maxWord - categories.get(i).length();
@@ -264,5 +264,14 @@ public class Table {
 			}
 		}
 		return exists;
+	}
+	
+	
+	public void setName(String name) {
+		tableName = name;
+	}
+	
+	public String getName() {
+		return tableName;
 	}
 }
