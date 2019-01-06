@@ -20,7 +20,7 @@ public class Table {
 			String name = JOptionPane.showInputDialog("Enter the name of the category:");
 			categories.add(name);
 			answer = JOptionPane
-					.showInputDialog("Add category by pressing the number 1." + " Leave by pressing any other key.");
+					.showInputDialog("Add category by pressing the number 1. Leave by pressing any other key.");
 
 		} while (answer.equals("1"));
 	}
@@ -104,7 +104,7 @@ public class Table {
 				String answer2;
 				do {
 					answer2 = JOptionPane.showInputDialog(
-							"Which category do you want to edit? " + "Type it as you see it.\n" + categories);
+							"Which category do you want to edit? Type it as you see it.\n" + categories);
 
 					for (int i = 0; i < categories.size(); i++) {
 						if (categories.get(i).equals(answer2)) {
@@ -114,7 +114,7 @@ public class Table {
 					}
 					if (!exists2)
 						JOptionPane.showMessageDialog(null,
-								"Wrong input." + " Type the name of the category as you see it.");
+								"Wrong input. Type the name of the category as you see it.");
 				} while (!exists2);
 
 				String toEdit = JOptionPane.showInputDialog("Give " + categories.get(catPos) + ":");
@@ -137,7 +137,7 @@ public class Table {
 
 			do {
 				answer = JOptionPane.showInputDialog(
-						"Which category do you want to edit? " + "Type it as you see it.\n" + categories);
+						"Which category do you want to edit? Type it as you see it.\n" + categories);
 
 				for (int i = 0; i < categories.size(); i++) {
 					if (categories.get(i).equals(answer)) {
@@ -147,7 +147,7 @@ public class Table {
 				}
 				if (!exists)
 					JOptionPane.showMessageDialog(null,
-							"Wrong input." + " Type the name of the category as you see it.");
+							"Wrong input. Type the name of the category as you see it.");
 			} while (!exists);
 
 			String toEdit = JOptionPane.showInputDialog("Give new designation");
@@ -181,17 +181,15 @@ public class Table {
 	public void printTable() {
 		int spaces;
 		int maxWord = findMaxWord();
-		int maxId = findMaxIdLength(ids);
-		spacing(maxId);
-		
+		int maxId = findMaxIdLength(ids);				
 		System.out.print("**" + getName() + "**\n\n");
+		spacing(maxId);
 		for (int i = 0; i < categories.size(); i++) {
 
 			spaces = maxWord - categories.get(i).length();
 			System.out.print(categories.get(i));
 			spacing(spaces);
 		}
-
 		System.out.println();
 
 		for (int i = 0; i < fieldObjects.size(); i++) {

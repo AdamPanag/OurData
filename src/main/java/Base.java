@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import java.util.Scanner;
 
 public class Base {
 
@@ -8,8 +7,7 @@ public class Base {
 	ArrayList<String> nameOfTable = new ArrayList<String>();
 	public static int tables = 0;
 
-	Scanner input = new Scanner(System.in);
-		
+			
 	/*
 	 * Creates a new Table and calls tableMenu(int r) for this table.
 	 */

@@ -4,8 +4,6 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-
-
 public class TableTest {
 	
 	private int pos = 0;
