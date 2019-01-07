@@ -1,7 +1,7 @@
 ## Hello World
 One greeting, one name. "Hello World". This is a project for university, and it is the first big step for us, to the world of Programming. :space_invader:
 
-## Function
+## Functions
 This project is about a data base. It gives the opportunity to the user to add, edit and delete fields in the data base. Also, the user can create, handle and present multiple tables (arrays). Below, we explain how the system works.
 
 ## How it works
