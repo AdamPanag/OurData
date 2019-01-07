@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
+/**
+ * This class represents the data base and creates the tables, and has the table menu.
+ * 
+ * @authors Hello_World team
+ */
 public class Base {
 
 	ArrayList<Table> table = new ArrayList<Table>();
@@ -51,6 +56,9 @@ public class Base {
 		}
 	}
 	
+	/*
+	 * Prints all the tables.
+	 */
 	
 	public void printAllTables() {
 		for (int i = 0; i < tables; i++) {
@@ -63,13 +71,14 @@ public class Base {
 	
 	/*
 	 * This is the menu for each table.
+	 * The integer variable r is the pointer of the specific table.
 	 */
 	public void tableMenu(int r) {
 		int ans;
 
 		do {
 
-			String answer = JOptionPane.showInputDialog("** Menu **" 
+			String answer = JOptionPane.showInputDialog("** Menu of " + table.get(r).getName() + " **" 
 			                                          + "\n\n0. Go back"
 					                                  + "\n1. Add Categories."
 									                  + "\n2. Add Fields." 

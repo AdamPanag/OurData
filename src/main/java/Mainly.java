@@ -1,5 +1,10 @@
 import javax.swing.JOptionPane;
 
+/**
+ * This class contains the method main and the main menu of the application.
+ * 
+ * @authors Hello_World team
+ */
 public class Mainly {
 
 	

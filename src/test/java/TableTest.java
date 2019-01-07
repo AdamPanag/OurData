@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
+/**
+ * JUnit test for the methods idExists and findMaxIdLength of the class Table.
+ * 
+ * @authors Hello_World team
+ */
 public class TableTest {
 	
 	private int pos = 0;

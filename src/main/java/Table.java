@@ -2,6 +2,12 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 
+/**
+ * This class represents a table if the data base.
+ * Also, includes all the functions the data base supports.
+ * 
+ * @authors Hello_World team
+ */
 public class Table {
 
 	ArrayList<Field> fieldObjects = new ArrayList<Field>();
@@ -10,7 +16,10 @@ public class Table {
 	private String tableName;
 	
 	Scanner input = new Scanner(System.in);
-
+	
+	/*
+	 * Adds new categories and gives them name.
+	 */
 	public void addCategories() {
 
 		String answer;
@@ -25,7 +34,9 @@ public class Table {
 		} while (answer.equals("1"));
 	}
 
-	
+	/*
+	 * Adds fields for the table creating objects of the class Fields.
+	 */
 	public void addFields() {
 
 		if (categories.size() == 0) {
@@ -45,7 +56,8 @@ public class Table {
 
 				for (int i = 0; i < categories.size(); i++) {
 
-					String name = JOptionPane.showInputDialog("Give field to the category '" + categories.get(i) + "':");
+					String name = JOptionPane.showInputDialog("Give field to the category '" 
+					                                         + categories.get(i) + "':");
 					fieldObjects.get(counter).fields.add(name);
 				}
 				answer = JOptionPane.showInputDialog(
@@ -56,6 +68,9 @@ public class Table {
 		}
 	}
 	
+	/*
+	 * Deletes a line of the table(array), deleting Field object and its id.
+	 */
 	public void deleteFields() {
 
 		if (fieldObjects.size() == 0) {
@@ -83,7 +98,9 @@ public class Table {
 		}
 	}
 
-
+	/*
+	 * Edits the value(name) of a specific cell in the table(array).
+	 */
 	public void editFields() {
 		setSpaceValue(categories.size(), fieldObjects.size());
 		
@@ -122,8 +139,10 @@ public class Table {
 			}
 		}
 	}
-
 	
+	/*
+	 * Changes the name of a category.
+	 */
 	public void editCategories() {
 
 		if (categories.size() == 0) {
@@ -177,7 +196,9 @@ public class Table {
 		}
 	}
 	
-
+	/*
+	 * Prints all the table.
+	 */
 	public void printTable() {
 		int spaces;
 		int maxWord = findMaxWord();
@@ -217,7 +238,9 @@ public class Table {
 		}
 	}
 
-	
+	/*
+	 * Finds the length of the largest word of the table, including categories.
+	 */
 	public int findMaxWord() {
 		int max = 0;
 
@@ -241,7 +264,9 @@ public class Table {
 		return max;
 	}
 
-	
+	/*
+	 * Finds the length of the largest id.
+	 */
 	public int findMaxIdLength(ArrayList<String> id) {
 		int max = 0;
 
@@ -253,7 +278,9 @@ public class Table {
 		return max;
 	}
 
-	
+	/*
+	 * Checks if a specific id exists and returns true if it exists.
+	 */
 	public boolean idExists(int pos, ArrayList<String> id) {
 		boolean exists = false;
 		for (int i = 0; i < id.size(); i++) {
@@ -264,11 +291,12 @@ public class Table {
 		return exists;
 	}
 	
-	
+	//Gives a name to the table.
 	public void setName(String name) {
 		tableName = name;
 	}
 	
+	//Gets the name of the table.
 	public String getName() {
 		return tableName;
 	}
