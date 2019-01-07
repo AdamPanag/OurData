@@ -1,9 +1,10 @@
 ## Hello World
 One greeting, one name. "Hello World". This is a project for university, and it is the first big step for us, to the world of Programming. :space_invader:  :hotsprings:
 
-## How it works
-This project is about a data base. It gives the opportunity to the user, to do the basic functions of a data base. Below, we explain how the system works.
+## Functions
+This project is about a data base. It gives the opportunity to the user to add, edit adn delete fields in the data base. Also, the user can create and handle multiple tables (arrays). Below, we explain how the system works.
 
+## How it works
 Firstly, pop-ups the main menu with the following orders:
 ***0. Terminate Application*** , where you shut down the application.
 ***1. Create a table*** , where you create a table in your Data Base.
