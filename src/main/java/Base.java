@@ -62,7 +62,7 @@ public class Base {
 	
 	public void printAllTables() {
 		for (int i = 0; i < tables; i++) {
-			System.out.println("** " + nameOfTable.get(i) + " **");
+			//System.out.println("** " + nameOfTable.get(i) + " **");
 			table.get(i).printTable();
 		}
 		System.out.println();
