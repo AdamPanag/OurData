@@ -2,7 +2,7 @@
 One greeting, one name. "Hello World". This is a project for university, and it is the first big step for us, to the world of Programming. :space_invader:  :hotsprings:
 
 ## Functions
-This project is about a data base. It gives the opportunity to the user to add, edit adn delete fields in the data base. Also, the user can create and handle multiple tables (arrays). Below, we explain how the system works.
+This project is about a data base. It gives the opportunity to the user to add, edit and delete fields in the data base. Also, the user can create, handle and present multiple tables (arrays). Below, we explain how the system works.
 
 ## How it works
 Firstly, pop-ups the main menu with the following orders:
@@ -24,7 +24,7 @@ By pressing 1, you order to create a category in which you may later add fields 
 ***2. Add fields*** :small_blue_diamond:
 By pressing 2, you choose to create a field in the existing categories. Provided only you have created at least one category, you can insert a field. If you have not created a table earlier, the system automatically leads you to do.
 
-***3. Delete fields***
+***3. Delete fields*** :small_blue_diamond:
 By pressing 3, you select to delete all fields in a specific line for all categories. You just have to choose which line you want to delete. But if you have not created any fields, then you follow the procedure of adding fields (Function 2). 
 
 ## Members
