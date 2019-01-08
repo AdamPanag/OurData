@@ -28,8 +28,8 @@ public class Table {
 
 			String name = JOptionPane.showInputDialog("Enter the name of the category:");
 			categories.add(name);
-			answer = JOptionPane
-					.showInputDialog("Add category by pressing the number 1. Leave by pressing any other key.");
+			answer = JOptionPane.showInputDialog("Add category by pressing the number 1. "
+				                               + "Leave by pressing any other key.");
 
 		} while (answer.equals("1"));
 	}
@@ -227,7 +227,7 @@ public class Table {
 			}
 			System.out.println();
 		}
-		System.out.println("/n");
+		System.out.println("\n");
 	}
 
 	/*
